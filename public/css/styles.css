@@ -1,0 +1,800 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Стили для шапки */
+header {
+    background-color: #288cf7;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.description p {
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Стили для кнопок перехода */
+.landing-buttons {
+    text-align: center;
+}
+
+.landing-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Стили для кнопки входа */
+.login-button {
+    position: fixed;
+    top: 30px;
+    right: 60px;
+}
+
+.login-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Стили для описания приложения */
+.app-description {
+    padding: 20px;
+}
+
+.app-description h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.app-description p {
+    margin-bottom: 15px;
+}
+
+.app-description ul {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.app-description ul li {
+    margin-bottom: 5px;
+}
+
+/* Стили для секции с кнопками и текстом описания */
+.landing-description {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Стили для навигационного меню */
+.main-menu {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu ul li {
+    display: inline;
+}
+
+.main-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.main-menu ul li a:hover {
+    background-color: #ddd;
+}
+
+
+/* Стили для футера */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.company-info p {
+    margin-bottom: 10px;
+}
+
+.additional-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для блока с топ-студентами */
+.top-students {
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-students h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Стили для блока студента */
+.student {
+    display: inline-block; 
+    text-align: center; 
+    margin-right: 20px; 
+}
+
+/* Добавляем стили для изображения профиля студента */
+.student img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 5px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block; 
+}
+
+
+/* Стили для информации о студенте */
+.student-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.student-info p {
+    margin-bottom: 5px;
+}
+
+/* Общий стиль для формы регистрации */
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.registration-form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.registration-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-form label {
+    font-weight: bold;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.registration-form input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для выпадающих списков */
+.registration-form select {
+    padding: 10px;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+}
+
+/* Стили для опций в выпадающих списках */
+.registration-form select option {
+    padding: 10px;
+}
+
+/* Добавляем стили для формы авторизации */
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+/* Стили для блока с публикациями */
+.publications {
+    padding: 20px;
+}
+
+/* Стили для публикаций */
+.publication {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.publication:hover {
+    transform: translateY(-5px);
+}
+
+.publication-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.publication-header span {
+    font-size: 14px;
+    color: #666;
+}
+
+.publication-user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.publication-description {
+    margin-bottom: 15px;
+}
+
+.publication-section {
+    margin-right: 15px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.like-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.like-button:hover {
+    background-color: #218838;
+}
+
+/* Стили для заголовка публикации */
+.publication-header {
+    margin-bottom: 15px; 
+}
+
+/* Стили для даты и времени публикации */
+.publication-date {
+    font-size: 14px;
+    color: #666; 
+}
+
+/* Стили для имени пользователя */
+.publication-user {
+    font-size: 18px;
+    font-weight: bold; 
+    color: #333; 
+}
+
+/* Стили для факультета */
+.publication-faculty {
+    font-size: 16px;
+    color: #555; 
+}
+
+/* Стили для группы */
+.publication-group {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Стили для количества звездочек */
+.publication-stars {
+    font-size: 16px;
+    color: #555; 
+}
+
+
+/* Стили для фильтров */
+.filters {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h2 {
+    margin-bottom: 10px;
+}
+
+.filter-option {
+    margin-bottom: 10px;
+}
+
+.filter-option label {
+    margin-right: 10px;
+}
+
+.filter-option select,
+.filter-option input[type="date"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#apply-filters {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#apply-filters:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для кнопок */
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для кнопки "Добавить публикацию" */
+.add-publication-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; 
+    margin-top: 10px; 
+}
+
+.add-publication-button:hover {
+    background-color: #45a049; 
+}
+
+/* Дополнительные стили для улучшения внешнего вида кнопки "Добавить публикацию" */
+.add-publication-button {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+}
+
+.add-publication-button:active {
+    background-color: #3e8e41; 
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+/* Стили для кнопки "Фильтр" */
+#filter-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f44336; 
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; 
+    margin-top: 10px; 
+}
+
+#filter-button:hover {
+    background-color: #d32f2f; 
+}
+
+/* Дополнительные стили для улучшения внешнего вида кнопки "Фильтр" */
+#filter-button {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+}
+
+#filter-button:active {
+    background-color: #b71c1c;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+}
+
+/* Размещение кнопки "Фильтр" */
+.filter {
+    text-align: right; 
+    margin-right: 20px; 
+    margin-left: 10px; 
+}
+
+/* Стили для списка фильтров */
+.filter-options {
+    display: inline-flex;
+    align-items: center;
+}
+
+.filter-options select {
+    padding: 8px; 
+    margin-left: 10px; 
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-options select:focus {
+    border-color: #2196F3; 
+}
+
+/* Дополнительные стили для улучшения внешнего вида элементов выбора */
+.filter-options select {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+}
+
+
+
+
+
+/* Стили для кнопки "Поиск" */
+#search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3; 
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #1976D2; 
+}
+
+/* Дополнительные стили для улучшения внешнего вида кнопки "Поиск" */
+#search-button {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+}
+
+#search-button:active {
+    background-color: #0D47A1; 
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+}
+
+/* Размещение кнопки "Поиск" */
+.search {
+    text-align: right; 
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+/* Стили для строки ввода для поиска */
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    width: 200px; 
+    transition: border-color 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #2196F3; 
+}
+
+/* Дополнительные стили для улучшения внешнего вида строки ввода для поиска */
+#search-input {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+}
+
+
+
+/* Стили для рейтинга студентов */
+.ranking {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.ranking h2 {
+    margin-bottom: 10px;
+}
+
+.student-ranking {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.student-ranking .student-info {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.student-ranking .student-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.student-ranking .student-info .ranking-number {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.student-ranking .student-info .student-name a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.student-ranking .student-info .student-name a:hover {
+    text-decoration: underline;
+}
+
+.student-ranking .student-info p {
+    margin: 0;
+}
+
+.student-ranking .student-info .stars {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.student-ranking .student-info .favorite-button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.student-ranking .student-info .favorite-button:hover {
+    background-color: #218838;
+}
+
+/* Стили для профиля студента */
+.student-profile {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-profile h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    text-align: center;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    margin-bottom: 20px;
+}
+
+.profile-details p {
+    margin-bottom: 10px;
+}
+
+/* Стили для значков достижений */
+.achievement-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.achievement-count {
+    font-size: 16px;
+}
+
+/* Стили для фотографий публикаций */
+.publication-photos {
+    margin-top: 30px;
+}
+
+.publication-photo {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.publication-photo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.publication-photo img:hover {
+    transform: scale(1.1);
+}
+
+/* Стили для шапки университета */
+.university-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.university-header .main-photo img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+/* Стили для блока с информацией о факультетах и кафедрах */
+.university-info {
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.university-info h2 {
+    margin-bottom: 10px;
+}
+
+/* Стили для кнопки перехода на страницу рейтинга студентов */
+.university-students {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.university-students button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.university-students button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
