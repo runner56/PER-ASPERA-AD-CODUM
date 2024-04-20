@@ -53,6 +53,7 @@
 
         <label for="university">Университет:</label><br>
         <select name="university" id="university" required>
+            <option disabled selected>Не выбрано</option>
             {% for university in universities %}
                 <option value="{{ university.id }}">{{ university.name }}</option>
             {% endfor %}
