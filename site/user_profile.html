@@ -7,66 +7,70 @@
     <link rel="stylesheet" href="../public/css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../public/static/logo-new.png" alt="Логотип">
-        </div>
-        <nav class="main-menu">
-            <ul>
-                <li><a href="main.html">Главная страница</a></li>
-                <li><a href="feed.html">Лента</a></li>
-                <li><a href="rating.html">Рейтинг</a></li>
-                <li><a href="student_search.html">Поиск студента</a></li>
-                <li><a href="university_search.html">Поиск вуза</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="logo">
+        <img src="../public/static/logo-new.png" alt="Логотип">
+    </div>
+    <nav class="main-menu">
+        <ul>
+            <li><a href="main.html">Главная страница</a></li>
+            <li><a href="feed.html">Лента</a></li>
+            <li><a href="rating.html">Рейтинг</a></li>
+            <li><a href="student_search.html">Поиск студента</a></li>
+            <li><a href="university_search.html">Поиск вуза</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <div class="student-profile">
-        <h2>Профиль студента</h2>
-        <div class="student-info">
-            <div class="profile-picture">
-                <img src="../public/static/student2.jpg" alt="Фото профиля">
-            </div>
-            <div class="profile-details">
-                <p><strong>Имя и фамилия:</strong> Иванов Иван</p>
-                <p><strong>Факультет:</strong> Физика</p>
-                <p><strong>Кафедра:</strong> Кафедра физики</p>
-                <p><strong>Поток:</strong> 2020</p>
-                <p><strong>Группа:</strong> <a href="show_students_group.html">Группа 101</a></p>
-                <p><strong>Место в рейтинге по потоку:</strong> 5</p>
-                <p><strong>Общее количество «звездочек»:</strong> 250</p>
-                <p><strong>Достижения в науке:</strong> <a href="достижения_науке.html">Посмотреть список (20)</a></p>
-                <p><strong>Достижения в спорте:</strong> <a href="достижения_спорте.html">Посмотреть список (10)</a></p>
-                <p><strong>Достижения в творчестве:</strong> <a href="достижения_творчестве.html">Посмотреть список (15)</a></p>
-                <p><strong>Достижения в волонтерстве:</strong> <a href="достижения_волонтерстве.html">Посмотреть список (5)</a></p>
-            </div>
+<div class="student-profile">
+    <h2>Профиль студента</h2>
+    <div class="student-info">
+        <div class="profile-picture">
+            <img src="../public/static/student2.jpg" alt="Фото профиля">
+            <form action="upload_profile_picture.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Загрузить фото профиля" name="submit">
+            </form>
         </div>
-        <div class="publication-photos">
-            <h3>Фотографии публикаций студента</h3>
-            <div class="publication-photo">
-                <img src="publication_photo1.jpg" alt="Фото публикации">
-            </div>
-            <div class="publication-photo">
-                <img src="publication_photo2.jpg" alt="Фото публикации">
-            </div>
+        <div class="profile-details">
+            <p><strong>Имя и фамилия:</strong> Иванов Иван</p>
+            <p><strong>Факультет:</strong> Физика</p>
+            <p><strong>Кафедра:</strong> Кафедра физики</p>
+            <p><strong>Поток:</strong> 2020</p>
+            <p><strong>Группа:</strong> <a href="show_students_group.html">Группа 101</a></p>
+            <p><strong>Место в рейтинге по потоку:</strong> 5</p>
+            <p><strong>Общее количество «звездочек»:</strong> 250</p>
+            <p><strong>Достижения в науке:</strong> <a href="достижения_науке.html">Посмотреть список (20)</a></p>
+            <p><strong>Достижения в спорте:</strong> <a href="достижения_спорте.html">Посмотреть список (10)</a></p>
+            <p><strong>Достижения в творчестве:</strong> <a href="достижения_творчестве.html">Посмотреть список (15)</a></p>
+            <p><strong>Достижения в волонтерстве:</strong> <a href="достижения_волонтерстве.html">Посмотреть список (5)</a></p>
         </div>
     </div>
+    <div class="publication-photos">
+        <h3>Фотографии публикаций студента</h3>
+        <div class="publication-photo">
+            <img src="publication_photo1.jpg" alt="Фото публикации">
+        </div>
+        <div class="publication-photo">
+            <img src="publication_photo2.jpg" alt="Фото публикации">
+        </div>
+    </div>
+</div>
 
-    <footer>
-        <div class="company-info">
-            <p>«ООО СОЗНАНИЕ»</p>
-            <p>Юридический адрес</p>
-            <p>Электронная почта</p>
-        </div>
-        <div class="additional-links">
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования сайта</a>
-            <a href="#">Обратная связь</a>
-            <a href="#">О нас</a>
-            <a href="#">Реклама</a>
-            <a href="#">Партнеры</a>
-        </div>
-    </footer>
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
 </body>
 </html>
