@@ -59,7 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: StudentPublish::class, inversedBy: 'liked_users')]
     private Collection $likes;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private File $photo;
 
     #[ORM\ManyToOne(inversedBy: 'students')]
@@ -67,6 +67,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?bool $is_verify = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $lastname = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $firstname = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
 
     public function __construct()
     {
@@ -293,6 +302,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVerify(bool $is_verify): static
     {
         $this->is_verify = $is_verify;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): static
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): static
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
 
         return $this;
     }
