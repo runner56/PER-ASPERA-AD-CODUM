@@ -400,48 +400,63 @@ footer {
 }
 
 
-/* Стили для фильтров */
+/* Обновленные стили для фильтров */
 .filters {
+    max-width: 600px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .filters h2 {
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40;
 }
 
 .filter-option {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .filter-option label {
-    margin-right: 10px;
+    font-weight: bold;
+    color: #343a40;
 }
 
-.filter-option select,
-.filter-option input[type="date"] {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.filter-option select, .filter-option input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-#apply-filters {
-    padding: 10px 20px;
-    font-size: 16px;
+.filter-option select:focus, .filter-option input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.filter-option button {
+    display: block;
+    width: 100%;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #007bff;
     color: #fff;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-#apply-filters:hover {
+.filter-option button:hover {
     background-color: #0056b3;
 }
+
 
 /* Стили для кнопок */
 .button {
@@ -605,71 +620,67 @@ footer {
 
 /* Стили для рейтинга студентов */
 .ranking {
-    padding: 20px;
     margin-top: 20px;
 }
 
 .ranking h2 {
-    margin-bottom: 10px;
-}
-
-.student-ranking {
-    display: flex;
-    align-items: center;
+    text-align: center;
     margin-bottom: 20px;
-}
-
-.student-ranking .student-info {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-}
-
-.student-ranking .student-info img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.student-ranking .student-info .ranking-number {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.student-ranking .student-info .student-name a {
     color: #007bff;
-    text-decoration: none;
+    font-size: 24px;
 }
 
-.student-ranking .student-info .student-name a:hover {
-    text-decoration: underline;
+#student-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
 }
 
-.student-ranking .student-info p {
-    margin: 0;
+.student-info {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.student-ranking .student-info .stars {
-    margin-left: auto;
+.student-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.student-info .ranking-number {
     font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #007bff;
 }
 
-.student-ranking .student-info .favorite-button {
-    margin-left: 10px;
-    padding: 8px 16px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.student-info .student-name {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
 }
 
-.student-ranking .student-info .favorite-button:hover {
-    background-color: #218838;
+.student-info .faculty,
+.student-info .group,
+.student-info .period {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
 }
+
+.student-info a {
+    text-decoration: none;
+    color: #333;
+}
+
+.student-info a:hover {
+    color: #007bff;
+}
+
 
 /* Стили для профиля студента */
 .student-profile {
@@ -1071,6 +1082,33 @@ footer {
 .upload-button {
     margin-right: 10px;
 }
+
+#apply-filters {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#apply-filters:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для изображений студентов */
+.student-info img {
+    width: 100px; /* Ширина изображения */
+    height: 100px; /* Высота изображения */
+    border-radius: 50%; /* Округление углов для создания круглого изображения */
+    object-fit: cover; /* Управление масштабированием и обрезкой изображения */
+    margin-right: 10px; /* Отступ справа от изображения */
+}
+
+
 
 
 

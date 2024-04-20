@@ -3,103 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рейтинг - LifeCourse</title>
+    <title>Рейтинг студентов</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="../public/css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../public/static/logo-new.png" alt="Логотип">
-        </div>
-        <div class="description">
-            <p>Рейтинг студентов - LifeCourse</p>
-        </div>
-    </header>
-
-    <nav class="main-menu">
-        <ul>
-            <li><a href="main.html">Главная страница</a></li>
-            <li><a href="feed.html">Лента</a></li>
-            <li><a href="rating.html">Рейтинг</a></li>
-            <li><a href="student_search.html">Поиск студента</a></li>
-            <li><a href="university_search.html">Поиск вуза</a></li>
-        </ul>
-    </nav>
-
-    <div class="filters">
-        <h2>Фильтры</h2>
-        <div class="filter-option">
-            <label for="city-filter">Города:</label>
-            <select id="city-filter">
-                <option value="orenburg">Оренбург</option>
-            </select>
-        </div>
-        <div class="filter-option">
-            <label for="university-filter">ВУЗы:</label>
-            <select id="university-filter">
-                <option value="ogu">ОГУ</option>
-            </select>
-        </div>
-        <div class="filter-option">
-            <label for="faculty-filter">Факультеты:</label>
-            <select id="faculty-filter">
-                <option value="all">Все</option>
-            </select>
-        </div>
-        <div class="filter-option">
-            <label for="stream-filter">Потоки:</label>
-            <select id="stream-filter" disabled>
-                <option value="all">Все</option>
-            </select>
-        </div>
-        <div class="filter-option">
-            <label for="department-filter">Кафедры:</label>
-            <select id="department-filter" disabled>
-                <option value="all">Все</option>
-            </select>
-        </div>
-        <div class="filter-option">
-            <label for="group-filter">Группы:</label>
-            <select id="group-filter" disabled>
-                <option value="all">Все</option>
-            </select>
-        </div>
-        <div class="filter-option">
-            <label for="period-filter">Период:</label>
-            <input type="date" id="period-filter">
-        </div>
-        <button id="apply-filters">Применить фильтры</button>
+<header>
+    <div class="logo">
+        <img src="../public/static/logo-new.png" alt="Логотип">
     </div>
-
-    <div class="ranking">
-        <h2>Рейтинг студентов</h2>
-        <div class="student-ranking">
-            <div class="student-info">
-                <span class="ranking-number">1.</span>
-                <img src="profile1.jpg" alt="Фото профиля">
-                <p class="student-name"><a href="#">Иванов Иван</a></p>
-                <p class="faculty"><a href="#">Физика</a></p>
-                <p class="group"><a href="#">Группа</a></p>
-                <p class="stars">100</p>
-                <button class="favorite-button">Избранное</button>
-            </div>
-        </div>
+    <div class="description">
+        <p>LifeCourse - ваш надежный гид в мире образования!</p>
+        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для достижения успеха.</p>
     </div>
+</header>
 
-    <footer>
-        <div class="company-info">
-            <p>«ООО СОЗНАНИЕ»</p>
-            <p>Юридический адрес</p>
-            <p>Электронная почта</p>
-        </div>
-        <div class="additional-links">
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования сайта</a>
-            <a href="#">Обратная связь</a>
-            <a href="#">О нас</a>
-            <a href="#">Реклама</a>
-            <a href="#">Партнеры</a>
-        </div>
-    </footer>
+<nav class="main-menu">
+    <ul>
+        <li><a href="main.html">Главная страница</a></li>
+        <li><a href="feed.html">Лента</a></li>
+        <li><a href="rating.html">Рейтинг</a></li>
+        <li><a href="student_search.html">Поиск студента</a></li>
+        <li><a href="university_search.html">Поиск вуза</a></li>
+    </ul>
+</nav>
+
+<div class="filters">
+    <h2>Фильтры</h2>
+    <div class="filter-option">
+        <label for="city-filter">По городам:</label>
+        <select id="city-filter">
+            <!-- Опции для выбора городов -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="university-filter">По вузам:</label>
+        <select id="university-filter">
+            <!-- Опции для выбора вузов -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="faculty-filter">По факультетам:</label>
+        <select id="faculty-filter">
+            <!-- Опции для выбора факультетов -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="stream-filter">По потокам:</label>
+        <select id="stream-filter">
+            <!-- Опции для выбора потоков -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="department-filter">По кафедрам:</label>
+        <select id="department-filter">
+            <!-- Опции для выбора кафедр -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="period-filter">По периоду:</label>
+        <input type="text" id="period-filter" placeholder="YYYY">
+    </div>
+    <button id="apply-filters">Применить фильтры</button>
+</div>
+
+<div class="ranking">
+    <h2>Рейтинг студентов</h2>
+    <div id="student-list">
+
+    </div>
+</div>
+
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../public/js/filter.js"></script>
 </body>
 </html>

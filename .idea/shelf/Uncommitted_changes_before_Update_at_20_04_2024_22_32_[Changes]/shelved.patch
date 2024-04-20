@@ -1,0 +1,244 @@
+Index: site/rating.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Рейтинг - LifeCourse</title>\r\n    <link rel=\"stylesheet\" href=\"../public/css/styles.css\">\r\n</head>\r\n<body>\r\n    <header>\r\n        <div class=\"logo\">\r\n            <img src=\"../public/static/logo-new.png\" alt=\"Логотип\">\r\n        </div>\r\n        <div class=\"description\">\r\n            <p>Рейтинг студентов - LifeCourse</p>\r\n        </div>\r\n    </header>\r\n\r\n    <nav class=\"main-menu\">\r\n        <ul>\r\n            <li><a href=\"main.html\">Главная страница</a></li>\r\n            <li><a href=\"feed.html\">Лента</a></li>\r\n            <li><a href=\"rating.html\">Рейтинг</a></li>\r\n            <li><a href=\"student_search.html\">Поиск студента</a></li>\r\n            <li><a href=\"university_search.html\">Поиск вуза</a></li>\r\n        </ul>\r\n    </nav>\r\n\r\n    <div class=\"filters\">\r\n        <h2>Фильтры</h2>\r\n        <div class=\"filter-option\">\r\n            <label for=\"city-filter\">Города:</label>\r\n            <select id=\"city-filter\">\r\n                <option value=\"orenburg\">Оренбург</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"filter-option\">\r\n            <label for=\"university-filter\">ВУЗы:</label>\r\n            <select id=\"university-filter\">\r\n                <option value=\"ogu\">ОГУ</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"filter-option\">\r\n            <label for=\"faculty-filter\">Факультеты:</label>\r\n            <select id=\"faculty-filter\">\r\n                <option value=\"all\">Все</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"filter-option\">\r\n            <label for=\"stream-filter\">Потоки:</label>\r\n            <select id=\"stream-filter\" disabled>\r\n                <option value=\"all\">Все</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"filter-option\">\r\n            <label for=\"department-filter\">Кафедры:</label>\r\n            <select id=\"department-filter\" disabled>\r\n                <option value=\"all\">Все</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"filter-option\">\r\n            <label for=\"group-filter\">Группы:</label>\r\n            <select id=\"group-filter\" disabled>\r\n                <option value=\"all\">Все</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"filter-option\">\r\n            <label for=\"period-filter\">Период:</label>\r\n            <input type=\"date\" id=\"period-filter\">\r\n        </div>\r\n        <button id=\"apply-filters\">Применить фильтры</button>\r\n    </div>\r\n\r\n    <div class=\"ranking\">\r\n        <h2>Рейтинг студентов</h2>\r\n        <div class=\"student-ranking\">\r\n            <div class=\"student-info\">\r\n                <span class=\"ranking-number\">1.</span>\r\n                <img src=\"profile1.jpg\" alt=\"Фото профиля\">\r\n                <p class=\"student-name\"><a href=\"#\">Иванов Иван</a></p>\r\n                <p class=\"faculty\"><a href=\"#\">Физика</a></p>\r\n                <p class=\"group\"><a href=\"#\">Группа</a></p>\r\n                <p class=\"stars\">100</p>\r\n                <button class=\"favorite-button\">Избранное</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <footer>\r\n        <div class=\"company-info\">\r\n            <p>«ООО СОЗНАНИЕ»</p>\r\n            <p>Юридический адрес</p>\r\n            <p>Электронная почта</p>\r\n        </div>\r\n        <div class=\"additional-links\">\r\n            <a href=\"#\">Политика конфиденциальности</a>\r\n            <a href=\"#\">Условия использования сайта</a>\r\n            <a href=\"#\">Обратная связь</a>\r\n            <a href=\"#\">О нас</a>\r\n            <a href=\"#\">Реклама</a>\r\n            <a href=\"#\">Партнеры</a>\r\n        </div>\r\n    </footer>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/rating.html b/site/rating.html
+--- a/site/rating.html	(revision fed37d501a3824d59159fab47f4c6ef268f310f8)
++++ b/site/rating.html	(date 1713633811297)
+@@ -3,103 +3,82 @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Рейтинг - LifeCourse</title>
++    <title>Рейтинг студентов</title>
++    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="../public/css/styles.css">
+ </head>
+ <body>
+-    <header>
+-        <div class="logo">
+-            <img src="../public/static/logo-new.png" alt="Логотип">
+-        </div>
+-        <div class="description">
+-            <p>Рейтинг студентов - LifeCourse</p>
+-        </div>
+-    </header>
++<header>
++    <div class="logo">
++        <img src="../public/static/logo-new.png" alt="Логотип">
++    </div>
++    <div class="description">
++        <p>LifeCourse - ваш надежный гид в мире образования!</p>
++        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для достижения успеха.</p>
++    </div>
++</header>
+ 
+-    <nav class="main-menu">
+-        <ul>
+-            <li><a href="main.html">Главная страница</a></li>
+-            <li><a href="feed.html">Лента</a></li>
+-            <li><a href="rating.html">Рейтинг</a></li>
+-            <li><a href="student_search.html">Поиск студента</a></li>
+-            <li><a href="university_search.html">Поиск вуза</a></li>
+-        </ul>
+-    </nav>
++<nav class="main-menu">
++    <ul>
++        <li><a href="main.html">Главная страница</a></li>
++        <li><a href="feed.html">Лента</a></li>
++        <li><a href="rating.html">Рейтинг</a></li>
++        <li><a href="student_search.html">Поиск студента</a></li>
++        <li><a href="university_search.html">Поиск вуза</a></li>
++    </ul>
++</nav>
+ 
+-    <div class="filters">
+-        <h2>Фильтры</h2>
+-        <div class="filter-option">
+-            <label for="city-filter">Города:</label>
+-            <select id="city-filter">
+-                <option value="orenburg">Оренбург</option>
+-            </select>
+-        </div>
+-        <div class="filter-option">
+-            <label for="university-filter">ВУЗы:</label>
+-            <select id="university-filter">
+-                <option value="ogu">ОГУ</option>
+-            </select>
+-        </div>
+-        <div class="filter-option">
+-            <label for="faculty-filter">Факультеты:</label>
+-            <select id="faculty-filter">
+-                <option value="all">Все</option>
+-            </select>
+-        </div>
+-        <div class="filter-option">
+-            <label for="stream-filter">Потоки:</label>
+-            <select id="stream-filter" disabled>
+-                <option value="all">Все</option>
+-            </select>
+-        </div>
+-        <div class="filter-option">
+-            <label for="department-filter">Кафедры:</label>
+-            <select id="department-filter" disabled>
+-                <option value="all">Все</option>
+-            </select>
+-        </div>
+-        <div class="filter-option">
+-            <label for="group-filter">Группы:</label>
+-            <select id="group-filter" disabled>
+-                <option value="all">Все</option>
+-            </select>
+-        </div>
+-        <div class="filter-option">
+-            <label for="period-filter">Период:</label>
+-            <input type="date" id="period-filter">
+-        </div>
+-        <button id="apply-filters">Применить фильтры</button>
+-    </div>
++<div class="filters">
++    <h2>Фильтры</h2>
++    <div class="filter-option">
++        <label for="faculty-filter">Факультеты:</label>
++        <select id="faculty-filter">
++            <option value="all">Все</option>
++            <option value="Физика">Физика</option>
++            <option value="Математика">Математика</option>
++        </select>
++    </div>
++    <div class="filter-option">
++        <label for="group-filter">Группы:</label>
++        <select id="group-filter">
++            <option value="all">Все</option>
++            <option value="Группа 1">Группа 1</option>
++            <option value="Группа 2">Группа 2</option>
++            <!-- Другие группы -->
++        </select>
++    </div>
++    <div class="filter-option">
++        <label for="period-filter">Период:</label>
++        <input type="text" id="period-filter">
++    </div>
++    <button id="apply-filters">Применить фильтры</button>
++</div>
+ 
+-    <div class="ranking">
+-        <h2>Рейтинг студентов</h2>
+-        <div class="student-ranking">
+-            <div class="student-info">
+-                <span class="ranking-number">1.</span>
+-                <img src="profile1.jpg" alt="Фото профиля">
+-                <p class="student-name"><a href="#">Иванов Иван</a></p>
+-                <p class="faculty"><a href="#">Физика</a></p>
+-                <p class="group"><a href="#">Группа</a></p>
+-                <p class="stars">100</p>
+-                <button class="favorite-button">Избранное</button>
+-            </div>
+-        </div>
+-    </div>
++<div class="ranking">
++    <h2>Рейтинг студентов</h2>
++    <div id="student-list">
++        <!-- Сюда будут добавляться студенты -->
++    </div>
++</div>
+ 
+-    <footer>
+-        <div class="company-info">
+-            <p>«ООО СОЗНАНИЕ»</p>
+-            <p>Юридический адрес</p>
+-            <p>Электронная почта</p>
+-        </div>
+-        <div class="additional-links">
+-            <a href="#">Политика конфиденциальности</a>
+-            <a href="#">Условия использования сайта</a>
+-            <a href="#">Обратная связь</a>
+-            <a href="#">О нас</a>
+-            <a href="#">Реклама</a>
+-            <a href="#">Партнеры</a>
+-        </div>
+-    </footer>
++<footer>
++    <div class="company-info">
++        <p>«ООО СОЗНАНИЕ»</p>
++        <p>Юридический адрес</p>
++        <p>Электронная почта</p>
++    </div>
++    <div class="additional-links">
++        <a href="#">Политика конфиденциальности</a>
++        <a href="#">Условия использования сайта</a>
++        <a href="#">Обратная связь</a>
++        <a href="#">О нас</a>
++        <a href="#">Реклама</a>
++        <a href="#">Партнеры</a>
++    </div>
++</footer>
++
++<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
++<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
++<script src="../public/js/filter.js"></script>
+ </body>
+ </html>
+Index: public/js/filter.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/js/filter.js b/public/js/filter.js
+new file mode 100644
+--- /dev/null	(date 1713633914999)
++++ b/public/js/filter.js	(date 1713633914999)
+@@ -0,0 +1,50 @@
++$(document).ready(function(){
++    // Предположим, что у вас есть массив students с данными студентов из базы данных
++    var students = [
++        { name: "Иванов Иван", faculty: "Физика", group: "Группа 1", period: "2020" },
++        { name: "Петров Петр", faculty: "Математика", group: "Группа 2", period: "2021" },
++        // Другие студенты
++    ];
++
++    // Функция для добавления студентов на страницу
++    function renderStudents() {
++        $("#student-list").empty(); // Очищаем список студентов перед добавлением новых
++
++        students.forEach(function(student) {
++            var studentElement = `
++                <div class="student-info" data-faculty="${student.faculty}" data-group="${student.group}" data-period="${student.period}">
++                    <span class="ranking-number">1.</span>
++                    <p class="student-name"><a href="#">${student.name}</a></p>
++                    <p class="faculty"><a href="#">${student.faculty}</a></p>
++                    <p class="group"><a href="#">${student.group}</a></p>
++                    <p class="period">${student.period}</p>
++                </div>
++            `;
++            $("#student-list").append(studentElement);
++        });
++    }
++
++    // Вызываем функцию для отображения студентов при загрузке страницы
++    renderStudents();
++
++    // Обработчик события для кнопки "Применить фильтры"
++    $("#apply-filters").click(function(){
++        var selectedFaculty = $("#faculty-filter").val();
++        var selectedGroup = $("#group-filter").val();
++        var selectedPeriod = $("#period-filter").val();
++
++        $(".student-info").each(function(){
++            var faculty = $(this).data("faculty");
++            var group = $(this).data("group");
++            var period = $(this).data("period");
++
++            if ((selectedFaculty === "all" || faculty === selectedFaculty) &&
++                (selectedGroup === "all" || group === selectedGroup) &&
++                (selectedPeriod === "" || period.includes(selectedPeriod))) { // Изменение условия фильтрации
++                $(this).show();
++            } else {
++                $(this).hide();
++            }
++        });
++    });
++});
