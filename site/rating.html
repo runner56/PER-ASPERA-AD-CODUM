@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг - LifeCourse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Логотип">
+        </div>
+        <div class="description">
+            <p>Рейтинг студентов - LifeCourse</p>
+        </div>
+    </header>
+
+    <nav class="main-menu">
+        <ul>
+            <li><a href="main.html">Главная страница</a></li>
+            <li><a href="feed.html">Лента</a></li>
+            <li><a href="rating.html">Рейтинг</a></li>
+            <li><a href="user_profile.html">Профиль студента</a></li>
+            <li><a href="profile_university.html">Профиль вуза</a></li>
+        </ul>
+    </nav>
+
+    <div class="filters">
+        <h2>Фильтры</h2>
+        <div class="filter-option">
+            <label for="city-filter">Города:</label>
+            <select id="city-filter">
+                <option value="orenburg">Оренбург</option>
+            </select>
+        </div>
+        <div class="filter-option">
+            <label for="university-filter">ВУЗы:</label>
+            <select id="university-filter">
+                <option value="ogu">ОГУ</option>
+            </select>
+        </div>
+        <div class="filter-option">
+            <label for="faculty-filter">Факультеты:</label>
+            <select id="faculty-filter">
+                <option value="all">Все</option>
+            </select>
+        </div>
+        <div class="filter-option">
+            <label for="stream-filter">Потоки:</label>
+            <select id="stream-filter" disabled>
+                <option value="all">Все</option>
+            </select>
+        </div>
+        <div class="filter-option">
+            <label for="department-filter">Кафедры:</label>
+            <select id="department-filter" disabled>
+                <option value="all">Все</option>
+            </select>
+        </div>
+        <div class="filter-option">
+            <label for="group-filter">Группы:</label>
+            <select id="group-filter" disabled>
+                <option value="all">Все</option>
+            </select>
+        </div>
+        <div class="filter-option">
+            <label for="period-filter">Период:</label>
+            <input type="date" id="period-filter">
+        </div>
+        <button id="apply-filters">Применить фильтры</button>
+    </div>
+
+    <div class="ranking">
+        <h2>Рейтинг студентов</h2>
+        <div class="student-ranking">
+            <div class="student-info">
+                <span class="ranking-number">1.</span>
+                <img src="profile1.jpg" alt="Фото профиля">
+                <p class="student-name"><a href="#">Иванов Иван</a></p>
+                <p class="faculty"><a href="#">Физика</a></p>
+                <p class="group"><a href="#">Группа</a></p>
+                <p class="stars">100</p>
+                <button class="favorite-button">Избранное</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="company-info">
+            <p>«ООО СОЗНАНИЕ»</p>
+            <p>Юридический адрес</p>
+            <p>Электронная почта</p>
+        </div>
+        <div class="additional-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования сайта</a>
+            <a href="#">Обратная связь</a>
+            <a href="#">О нас</a>
+            <a href="#">Реклама</a>
+            <a href="#">Партнеры</a>
+        </div>
+    </footer>
+</body>
+</html>
