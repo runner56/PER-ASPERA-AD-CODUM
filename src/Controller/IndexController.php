@@ -2,8 +2,13 @@
 
 namespace App\Controller;
 
+use App\Repository\FacultyRepository;
+use App\Repository\KafedraRepository;
+use App\Repository\TeachGroupRepository;
+use App\Repository\UniversityRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class IndexController extends AbstractController
@@ -28,9 +33,32 @@ class IndexController extends AbstractController
         return $this->render('user_profile.html.twig');
     }
 
+    #[Route('/profile_university')]
+    public function universityProfile(): Response
+    {
+        return $this->render('profile_university.html.twig');
+    }
+
     #[Route('/group/view/{id}')]
     public function groupView(int $id)
     {
         return $this->render('user_profile.html.twig');
+    }
+
+    #[Route('/rating')]
+    public function rating(UniversityRepository $repository, FacultyRepository $facultyRepository, KafedraRepository $kafedraRepository, TeachGroupRepository $teachGroupRepository)
+    {
+        $cities = $repository->getUniqCities();
+        $names = $repository->getNames();
+        $faculties = $facultyRepository->findAll();
+        $kafedras = $kafedraRepository->findAll();
+        $groups = $teachGroupRepository->findAll();
+        return $this->render('rating.html.twig', [
+            'cities' => $cities,
+            'names' => $names,
+            'faculties' => $faculties,
+            'kafedras' => $kafedras,
+            'groups' => $groups
+        ]);
     }
 }

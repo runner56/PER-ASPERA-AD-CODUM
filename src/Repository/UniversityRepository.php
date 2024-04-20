@@ -45,4 +45,13 @@ class UniversityRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+    public function getUniqCities()
+    {
+        return $this->createQueryBuilder('u')->select('u.city')->distinct()->getQuery()->getResult();
+    }
+
+    public function getNames()
+    {
+        return $this->createQueryBuilder('u')->select('u.name')->distinct()->getQuery()->getResult();
+    }
 }
