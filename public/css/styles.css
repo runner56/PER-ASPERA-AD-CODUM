@@ -8,6 +8,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
+     display: flex;
+    flex-direction: column;
+   min-height: 100vh;
+}
+.container {
+    flex: 1;
 }
 
 /* Стили для шапки */
@@ -126,7 +132,6 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-    width: 100%;
 }
 
 .company-info p {
@@ -544,10 +549,6 @@ footer {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
 }
 
-
-
-
-
 /* Стили для кнопки "Поиск" */
 #search-button {
     padding: 10px 20px;
@@ -794,6 +795,193 @@ footer {
 .university-students button:hover {
     background-color: #0056b3;
 }
+
+/* Стили для формы поиска студента */
+.search-student {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.search-student h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.search-student form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-student label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.search-student input[type="text"],
+.search-student input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-student select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.search-student button[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-student button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.search-results {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.search-results h2 {
+    margin-bottom: 10px;
+    color: #007bff;
+    font-size: 20px;
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.search-results li {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-results li:hover {
+    color: #007bff;
+}
+
+
+
+
+/* Стили для формы поиска университета */
+.search-university {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.search-university h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-university form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-university label {
+    font-weight: bold;
+}
+
+.search-university input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-university button[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-university button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для списка студентов */
+.student-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.student-list li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.student-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.student-list p {
+    margin: 5px 0;
+}
+
+.student-list a {
+    text-decoration: none;
+    color: #333;
+}
+
+.student-list a:hover {
+    color: #007bff;
+}
+
+.student-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.container h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
 
 
 
