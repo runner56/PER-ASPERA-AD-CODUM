@@ -1035,6 +1035,7 @@ footer {
 }
 
 .profile-picture input[type="submit"] {
+    margin-top: 10px;
     padding: 8px 16px;
     font-size: 16px;
     border: none;
@@ -1047,6 +1048,28 @@ footer {
 
 .profile-picture input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* Стили для кнопок загрузки фото профиля */
+.upload-button, .submit-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover, .submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для кнопки выбора файла */
+.upload-button {
+    margin-right: 10px;
 }
 
 

@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль студента</title>
     <link rel="stylesheet" href="../public/css/styles.css">
+    <style>
+        /* Стили для кнопок загрузки фото профиля */
+        .upload-button, .submit-button {
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-button:hover, .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Стили для кнопки выбора файла */
+        .upload-button {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -29,7 +52,8 @@
             <img src="../public/static/student2.jpg" alt="Фото профиля">
             <form action="upload_profile_picture.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Загрузить фото профиля" name="submit">
+                <label for="fileToUpload" class="upload-button">Выберите файл</label>
+                <input type="submit" value="Загрузить" name="submit" class="submit-button">
             </form>
         </div>
         <div class="profile-details">
