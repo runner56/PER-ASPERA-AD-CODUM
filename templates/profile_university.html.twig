@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль ВУЗа - LifeCourse</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+    <header class="university-header">
+        <div class="main-photo">
+            <img src="{{ asset('static/logo.jpg') }}" alt="Логотип">
+        </div>
+        <div class="gallery">
+            <img src="gallery_photo1.jpg" alt="Фото галереи">
+            <img src="gallery_photo2.jpg" alt="Фото галереи">
+            <img src="gallery_photo3.jpg" alt="Фото галереи">
+        </div>
+    </header>
+
+    <nav class="main-menu">
+        <ul>
+            <li><a href="main.html">Главная страница</a></li>
+            <li><a href="feed.html">Лента</a></li>
+            <li><a href="rating.html">Рейтинг</a></li>
+            <li><a href="user_profile.html">Профиль студента</a></li>
+            <li><a href="profile_university.html">Профиль вуза</a></li>
+        </ul>
+    </nav>
+
+    <div class="university-info">
+        <h2>Факультеты и кафедры</h2>
+        <p>Здесь будет информация о факультетах и кафедрах ВУЗа, редактируемая из личного кабинета.</p>
+    </div>
+
+    <div class="university-students">
+        <button><a href="rating.html">Студенты ВУЗа</a></button>
+    </div>
+
+    <footer>
+        <div class="company-info">
+            <p>«ООО СОЗНАНИЕ»</p>
+            <p>Юридический адрес</p>
+            <p>Электронная почта</p>
+        </div>
+        <div class="additional-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования сайта</a>
+            <a href="#">Обратная связь</a>
+            <a href="#">О нас</a>
+            <a href="#">Реклама</a>
+            <a href="#">Партнеры</a>
+        </div>
+    </footer>
+</body>
+</html>
