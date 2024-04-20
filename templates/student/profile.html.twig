@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="student-profile">
+        <h2>Профиль студента</h2>
+        <div class="student-info">
+            <div class="profile-picture">
+                <img src="{{ asset('images/' ~ user.photo) }}"
+                     alt="Фото профиля">
+                {% if user== app.user %}
+                    <form action="/upload_student_photo" method="post" enctype="multipart/form-data">
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <label for="fileToUpload" class="upload-button">Выберите файл</label>
+                        <input type="submit" value="Загрузить" name="submit" class="submit-button">
+                    </form>
+                {% endif %}
+            </div>
+            <div class="profile-details">
+                <p><strong>Имя и фамилия:</strong> {{ user.lastname }} {{ user.firstname }}</p>
+                <p><strong>Факультет:</strong> {{ user.teachGroup.kafedra.faculty.name }}</p>
+                <p><strong>Кафедра:</strong> {{ user.teachGroup.kafedra.name }}</p>
+                <p><strong>Поток:</strong> {{ user.teachGroup.streamYear }}</p>
+                <p><strong>Группа:</strong> <a
+                            href="/groups/view/{{ user.teachGroup.id }}">{{ user.teachGroup.name }}</a></p>
+                <p><strong>Место в рейтинге по потоку:</strong> 5</p>
+                <p><strong>Общее количество «звездочек»:</strong> {{ user.star }}</p>
+                <p><strong>Достижения в науке:</strong> <a href="достижения_науке.html">Посмотреть список (20)</a></p>
+                <p><strong>Достижения в спорте:</strong> <a href="достижения_спорте.html">Посмотреть список (10)</a></p>
+                <p><strong>Достижения в творчестве:</strong> <a href="достижения_творчестве.html">Посмотреть список
+                        (15)</a></p>
+                <p><strong>Достижения в волонтерстве:</strong> <a href="достижения_волонтерстве.html">Посмотреть список
+                        (5)</a></p>
+            </div>
+        </div>
+        <div class="publication-photos">
+            <div style="display: flex;justify-content: space-between; align-items: center">
+                <h3>Фотографии публикаций студента</h3>
+                <a href="/student/publish/add" class="upload-button">Добавить публикацию</a>
+            </div>
+            {% for publish in publishes %}
+                <div class="publish-item">
+                    <div>
+                        <h3>Код: {{ publish.id }}</h3>
+                        <h3>Название: {{ publish.title }}</h3>
+                        <h3>Тема: {{ publish.type.name }}</h3>
+                        <h3>Лайков: {{ publish.getLikedUsers.count }}</h3>
+                    </div>
+                    <div>
+                        <a class="upload-button" href="/publish/view/{{ publish.id }}">Просмотр</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <style>
+        .publication-photos {
+            display: flex;
+            flex-direction: column;
+        }
+        .publish-item{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 10%;
+            align-items: center;
+        }
+    </style>
+{% endblock %}

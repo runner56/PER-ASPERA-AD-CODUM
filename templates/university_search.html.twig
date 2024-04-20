@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск вуза</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="{{ asset('static/logo.jpg') }}" alt="Логотип">
+    </div>
+    <div class="description">
+        <p>LifeCourse - ваш надежный гид в мире образования!</p>
+        <p>Поиск вуза</p>
+    </div>
+</header>
+
+<nav class="main-menu">
+    <ul>
+        <li><a href="main.html">Главная страница</a></li>
+        <li><a href="feed.html">Лента</a></li>
+        <li><a href="rating.html">Рейтинг</a></li>
+        <li><a href="student_search.html.twig">Поиск студента</a></li>
+        <li><a href="university_search.html">Поиск вуза</a></li>
+    </ul>
+</nav>
+
+<div class="search-university">
+    <h2>Поиск вуза</h2>
+    <form>
+        <label for="university_name">Введите название вуза:</label>
+        <input type="text" id="university_name" name="university_name">
+        <label for="city">Введите город:</label>
+        <input type="text" id="city" name="city">
+        <button type="button" id="searchButton">Найти</button>
+    </form>
+</div>
+
+<div class="search-results">
+    <h3>Результаты поиска</h3>
+    <ul id="resultsList"></ul>
+</div>
+
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('js/box2.js') }}"></script>
+</body>
+</html>

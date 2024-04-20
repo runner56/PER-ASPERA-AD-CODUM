@@ -28,6 +28,9 @@ class TeachGroup
     #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'teachGroup')]
     private Collection $students;
 
+    #[ORM\Column(options: ['default' => '2022'])]
+    private ?int $streamYear = null;
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
@@ -88,6 +91,18 @@ class TeachGroup
                 $student->setTeachGroup(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStreamYear(): ?int
+    {
+        return $this->streamYear;
+    }
+
+    public function setStreamYear(int $stream_year): static
+    {
+        $this->streamYear = $stream_year;
 
         return $this;
     }

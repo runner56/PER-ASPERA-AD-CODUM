@@ -33,6 +33,9 @@ class StudentPublish
     #[ORM\JoinColumn(nullable: false)]
     private ?PublishType $type = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
     public function __construct()
     {
         $this->liked_users = new ArrayCollection();
@@ -102,6 +105,18 @@ class StudentPublish
     public function setType(?PublishType $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
 
         return $this;
     }

@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/', name: 'main')]
     public function index(UserRepository $repository)
     {
 
@@ -30,7 +29,7 @@ class IndexController extends AbstractController
     #[Route('/profile')]
     public function userProfile()
     {
-        return $this->render('user_profile.html.twig');
+        return $this->render('profile.html.twig');
     }
 
     #[Route('/profile_university')]
@@ -42,10 +41,9 @@ class IndexController extends AbstractController
     #[Route('/group/view/{id}')]
     public function groupView(int $id)
     {
-        return $this->render('user_profile.html.twig');
+        return $this->render('profile.html.twig');
     }
 
-    #[Route('/rating')]
     public function rating(UniversityRepository $repository, FacultyRepository $facultyRepository, KafedraRepository $kafedraRepository, TeachGroupRepository $teachGroupRepository)
     {
         $cities = $repository->getUniqCities();
@@ -60,5 +58,17 @@ class IndexController extends AbstractController
             'kafedras' => $kafedras,
             'groups' => $groups
         ]);
+    }
+
+    #[Route('/student_search')]
+    public function studentSearch()
+    {
+        return $this->render('student_search.html.twig');
+    }
+
+    #[Route('/university_search')]
+    public function universitySearch()
+    {
+        return $this->render('university_search.html.twig');
     }
 }

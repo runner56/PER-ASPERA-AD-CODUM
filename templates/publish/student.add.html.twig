@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="publication-form">
+        <div class="head">
+            <h2>Добавить новую публикацию</h2>
+        </div>
+        <form id="publication-form" class="form" method="post">
+            <label for="author">Автор: {{ app.user.lastname }} {{ app.user.firstname }}</label>
+            <label for="title">Название:</label>
+            <input id="title" name="title">
+            <label for="section">Раздел:</label>
+            <select id="section" name="type" required>
+                {% for type in types %}
+                    <option value="{{ type.id }}">{{ type.name }}</option>
+                {% endfor %}
+            </select>
+            <label for="description">Статья:</label>
+            <textarea id="description" class="redactor" name="text" ></textarea><br><br>
+            <button type="submit" class="upload-button">Опубликовать</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.tiny.cloud/1/lp0iezkz87fcoup2c73hvas0ziz27pmshmwroq32j1gaqwh2/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '.redactor'
+        });
+    </script>
+    <style>
+       form{
+           margin: 10px 10%;
+           display: flex;
+           flex-direction: column;
+           font-size: 1.5em;
+           gap: 10px;
+       }
+       select {
+           height: 40px;
+           font-size: 1.1em;
+       }
+       input{
+           height: 40px;
+           font-size: 1.1em;
+       }
+       .upload-button{
+           margin: 0 40%;
+       }
+       .head{
+           display: flex;
+           justify-content: center;
+       }
+    </style>
+{% endblock %}

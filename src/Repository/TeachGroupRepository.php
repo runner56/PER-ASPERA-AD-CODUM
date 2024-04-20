@@ -38,6 +38,13 @@ class TeachGroupRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    public function getUniqStreamYears()
+    {
+        return $this->createQueryBuilder('t')->select('t.streamYear')->distinct()->getQuery()->getResult();
+    }
+
+
     //    /**
     //     * @return TeachGroup[] Returns an array of TeachGroup objects
     //     */

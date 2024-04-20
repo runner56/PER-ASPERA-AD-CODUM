@@ -52,6 +52,6 @@ class UniversityRepository extends ServiceEntityRepository
 
     public function getNames()
     {
-        return $this->createQueryBuilder('u')->select('u.name')->distinct()->getQuery()->getResult();
+        return $this->createQueryBuilder('u')->select('u.name, u.id')->getQuery()->getResult();
     }
 }

@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="button-container">
+        <button class="add-publication-button">Добавить публикацию</button>
+        <div class="search">
+            <input type="text" id="search-input" placeholder="Поиск...">
+            <button id="search-button">Поиск</button>
+        </div>
+        <div class="filter">
+            <div class="filter-options">
+                <select name="city" id="city-select">
+                    {% for city in cities %}
+                        <option value="{{ city.city }}">{{ city.city }}</option>
+                    {% endfor %}
+                </select>
+                <select name="university" id="university-select">
+                    {% for university in universities %}
+                        <option value="{{ university.name }}">{{ university.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="faculty" id="faculty-select">
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.name }}">{{ faculty.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button id="filter-button">Фильтр</button>
+        </div>
+    </div>
+
+    <div class="publications" id="publications-container">
+        <div class="publication">
+            <div class="publication-header">
+                <div class="user-info">
+                    <img src="profile1.jpg" alt="Фото пользователя" class="publication-user-photo">
+                    <span class="publication-user">Иванова Анна</span>
+                </div>
+                <span class="publication-date">10 апреля 2024, 15:30</span>
+            </div>
+            <div class="publication-content">
+                <p class="publication-description">Описание публикации</p>
+                <span class="publication-section">Наука</span>
+                <button class="like-button">Лайк</button>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-header">
+                <div class="user-info">
+                    <img src="profile2.jpg" alt="Фото пользователя" class="publication-user-photo">
+                    <span class="publication-user">Петров Иван</span>
+                </div>
+                <span class="publication-date">11 апреля 2024, 10:45</span>
+            </div>
+            <div class="publication-content">
+                <p class="publication-description">Ещё одно описание публикации</p>
+                <span class="publication-section">Искусство</span>
+                <button class="like-button">Лайк</button>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-header">
+                <div class="user-info">
+                    <img src="profile3.jpg" alt="Фото пользователя" class="publication-user-photo">
+                    <span class="publication-user">Сидорова Мария</span>
+                </div>
+                <span class="publication-date">12 апреля 2024, 14:20</span>
+            </div>
+            <div class="publication-content">
+                <p class="publication-description">Еще одно описание публикации</p>
+                <span class="publication-section">Технологии</span>
+                <button class="like-button">Лайк</button>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-header">
+                <div class="user-info">
+                    <img src="profile4.jpg" alt="Фото пользователя" class="publication-user-photo">
+                    <span class="publication-user">Ковалев Игорь</span>
+                </div>
+                <span class="publication-date">13 апреля 2024, 16:55</span>
+            </div>
+            <div class="publication-content">
+                <p class="publication-description">Еще одно описание публикации</p>
+                <span class="publication-section">Путешествия</span>
+                <button class="like-button">Лайк</button>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-header">
+                <div class="user-info">
+                    <img src="profile5.jpg" alt="Фото пользователя" class="publication-user-photo">
+                    <span class="publication-user">Новиков Алексей</span>
+                </div>
+                <span class="publication-date">14 апреля 2024, 11:10</span>
+            </div>
+            <div class="publication-content">
+                <p class="publication-description">Еще одно описание публикации</p>
+                <span class="publication-section">Фотография</span>
+                <button class="like-button">Лайк</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('js/search.js') }}"></script>
+{% endblock %}

@@ -2,6 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Faculty;
+use App\Entity\Kafedra;
+use App\Entity\TeachGroup;
+use App\Entity\University;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -27,6 +31,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function findTopStudents(int $limit)
     {
         return $this->createQueryBuilder('u')
+            ->select('')
             ->where('u.roles like :roles')
             ->setParameter('roles', '%ROLE_STUDENT%')
             ->orderBy('u.star', 'desc')
@@ -71,4 +76,102 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+    public function searchAll(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('CONCAT(u.lastname, \' \', u.firstname) as name', 't.name as group', 'un.name as university', 'u.id as id')
+            ->innerJoin(TeachGroup::class, 't', 'with', 'u.teachGroup = t')
+            ->innerJoin(Kafedra::class, 'k', 'with', 't.kafedra = k')
+            ->innerJoin(Faculty::class, 'f', 'with', 'k.faculty = f')
+            ->innerJoin(University::class, 'un', 'with', 'f.university = un')
+            ->where('u.roles like :roles')
+            ->setParameter('roles', '%ROLE_STUDENT%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function fetchTopStudents()
+    {
+        return $this->createQueryBuilder('u')
+            ->select(
+                'f.name as faculty',
+                't.name as group',
+                'un.name as university',
+                'u.id as id',
+                't.streamYear as period',
+                'un.city as city',
+                't.streamYear as stream',
+                'k.name as department',
+                'u.photo',
+                'u.star',
+                'u.lastname',
+                'u.firstname',
+            )
+            ->innerJoin(TeachGroup::class, 't', 'with', 'u.teachGroup = t')
+            ->innerJoin(Kafedra::class, 'k', 'with', 't.kafedra = k')
+            ->innerJoin(Faculty::class, 'f', 'with', 'k.faculty = f')
+            ->innerJoin(University::class, 'un', 'with', 'f.university = un')
+            ->where('u.roles like :roles')
+            ->setParameter('roles', '%ROLE_STUDENT%')
+            ->orderBy('u.star', 'desc')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function fetchStudent($id)
+    {
+        return $this->createQueryBuilder('u')
+            ->select(
+                'f.name as faculty',
+                't.name as group',
+                'un.name as university',
+                'u.id as id',
+                't.streamYear as period',
+                'un.city as city',
+                't.streamYear as stream',
+                'k.name as department',
+                'u.photo',
+                'u.star',
+                'u.lastname',
+                'u.firstname',
+            )
+            ->innerJoin(TeachGroup::class, 't', 'with', 'u.teachGroup = t')
+            ->innerJoin(Kafedra::class, 'k', 'with', 't.kafedra = k')
+            ->innerJoin(Faculty::class, 'f', 'with', 'k.faculty = f')
+            ->innerJoin(University::class, 'un', 'with', 'f.university = un')
+            ->where('u.roles like :roles and u.id = :id')
+            ->setParameter('roles', '%ROLE_STUDENT%')
+            ->setParameter('id', $id)
+            ->orderBy('u.star', 'desc')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function fetchRatingStudents()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('CONCAT(u.lastname, \' \', u.firstname) as name',
+                'f.name as faculty',
+                't.name as group',
+                'un.name as university',
+                'u.id as id',
+                't.streamYear as period',
+                'un.city as city',
+                't.streamYear as stream',
+                'k.name as department',
+                'u.photo',
+                'u.star'
+            )
+            ->innerJoin(TeachGroup::class, 't', 'with', 'u.teachGroup = t')
+            ->innerJoin(Kafedra::class, 'k', 'with', 't.kafedra = k')
+            ->innerJoin(Faculty::class, 'f', 'with', 'k.faculty = f')
+            ->innerJoin(University::class, 'un', 'with', 'f.university = un')
+            ->where('u.roles like :roles')
+            ->setParameter('roles', '%ROLE_STUDENT%')
+            ->orderBy('u.star', 'desc')
+            ->getQuery()
+            ->getResult();
+    }
 }

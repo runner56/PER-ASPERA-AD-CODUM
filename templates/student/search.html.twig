@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="search-student">
+    <h2>Поиск студента</h2>
+    <form>
+        <label for="student_name">Введите имя или фамилию студента:</label>
+        <input type="text" id="student_name" name="student_name">
+        <label for="university">Выберите вуз:</label>
+        <select id="university" name="university">
+            {% for university in universities %}
+                <option value="{{ university.name }}">{{ university.name }}</option>
+            {% endfor %}
+        </select>
+        <label for="group">Введите группу:</label>
+        <input type="text" id="group" name="group">
+        <button type="button" id="searchButton">Найти</button>
+    </form>
+</div>
+
+<div class="search-results">
+    <h2>Результаты поиска</h2>
+    <ul id="resultsList"></ul>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('js/box.js') }}"></script>
+{% endblock %}

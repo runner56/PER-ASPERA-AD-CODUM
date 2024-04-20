@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="search-university">
+        <h2>Поиск вуза</h2>
+        <form>
+            <label for="university_name">Введите название вуза:</label>
+            <input type="text" id="university_name" name="university_name">
+            <label for="city">Введите город:</label>
+            <input type="text" id="city" name="city">
+            <button type="button" id="searchButton">Найти</button>
+        </form>
+    </div>
+
+    <div class="search-results">
+        <h3>Результаты поиска</h3>
+        <ul id="resultsList"></ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/filter.js') }}"></script>
+    <script src="{{ asset('js/box2.js') }}"></script>
+{% endblock %}

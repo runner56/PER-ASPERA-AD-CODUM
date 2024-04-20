@@ -60,7 +60,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $likes;
 
     #[ORM\Column(nullable: true)]
-    private File $photo;
+    private ?string $photo = null;
 
     #[ORM\ManyToOne(inversedBy: 'students')]
     private ?TeachGroup $teachGroup = null;
@@ -274,15 +274,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function setPhoto(File $photo): User
+    public function setPhoto(string $photo): User
     {
         $this->photo = $photo;
         return $this;
     }
 
-    public function getPhoto(): File
+    public function getPhoto(): ?string
     {
-        return $this->photo;
+        return $this->photo ?? null;
     }
 
     public function getTeachGroup(): ?TeachGroup

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="filters">
+    <h2>Фильтры</h2>
+    <div class="filter-option">
+        <label for="city-filter">По городам:</label>
+        <select id="city-filter">
+            {% for city in cities %}
+                <option value="{{ city.city }}">{{ city.city }}</option>
+            {% endfor %}
+            <!-- Опции для выбора городов -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="university-filter">По вузам:</label>
+        <select id="university-filter">
+            <!-- Опции для выбора вузов -->
+            {% for university in universities %}
+                <option value="{{ university.id }}">{{ university.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="faculty-filter">По факультетам:</label>
+        <select id="faculty-filter">
+            <!-- Опции для выбора факультетов -->
+            {% for faculty in faculties %}
+                <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="stream-filter">По потокам:</label>
+        <select id="stream-filter">
+            {% for year in streamYears %}
+                <option value="{{ year.streamYear }}">{{ year.streamYear }}</option>
+            {% endfor %}
+            <!-- Опции для выбора потоков -->
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="department-filter">По кафедрам:</label>
+        <select id="department-filter">
+            <!-- Опции для выбора кафедр -->
+            {% for kafedra in kafedras %}
+                <option value="{{ kafedra.id }}">{{ kafedra.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="period-filter">По периоду:</label>
+        <input type="text" id="period-filter" placeholder="YYYY">
+    </div>
+    <button id="apply-filters">Применить фильтры</button>
+</div>
+
+<div class="ranking">
+    <h2>Рейтинг студентов</h2>
+    <div id="student-list">
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="{{ asset('js/filter.js') }}"></script>
+{% endblock %}

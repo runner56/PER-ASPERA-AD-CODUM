@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="university-info">
+        <h2>Факультеты и кафедры</h2>
+        <h3>Название: {{ university.name }}</h3>
+        <h3>Адрес: {{ university.address }}</h3>
+        <h3>Город: {{ university.city }}</h3>
+    </div>
+
+    <div class="university-students">
+        <button><a href="rating.html">Студенты ВУЗа</a></button>
+    </div>
+
+{% endblock %}

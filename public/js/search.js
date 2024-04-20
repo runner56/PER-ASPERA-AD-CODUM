@@ -1,18 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const users = [
-        { name: "Иванова Анна", photo: "profile1.jpg", profileUrl: "user_profile.html?id=1" },
-        { name: "Петров Иван", photo: "profile2.jpg", profileUrl: "user_profile.html?id=2" },
-        { name: "Сидорова Мария", photo: "profile3.jpg", profileUrl: "user_profile.html?id=3" },
-        { name: "Ковалев Игорь", photo: "profile4.jpg", profileUrl: "user_profile.html?id=4" },
-        { name: "Новиков Алексей", photo: "profile5.jpg", profileUrl: "user_profile.html?id=5" }
-    ];
+    console.log("test")
+
+    let publishes;
+    fetch(`${baseUrl}/publish/all`).then(res => res.json()).then(res =>{
+        console.log(res)
+        publishes = res.publishes
+        displaySearchResults(publishes)
+    })
 
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
+    const citySelect = document.getElementById('city-select')
+    const universitySelect = document.getElementById('university-select')
+    const facultySelect = document.getElementById('faculty-select')
 
     searchButton.addEventListener('click', () => {
         const query = searchInput.value.trim().toLowerCase();
-        const results = users.filter(user => user.name.toLowerCase().includes(query));
+        const results = publishes
+            .filter(publish => publish.title.toLowerCase().includes(query))
+            .filter(publish => publish.creator.city === citySelect.value)
+            .filter(publish => publish.creator.university === universitySelect.value)
+            .filter(publish => publish.creator.faculty === facultySelect.value);
+        console.log(results)
         displaySearchResults(results);
     });
 
@@ -28,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             results.forEach(user => {
                 const publication = document.createElement('div');
                 publication.classList.add('publication');
-    
+
                 const publicationHeader = document.createElement('div');
                 publicationHeader.classList.add('publication-header');
     
@@ -36,17 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 userInfo.classList.add('user-info');
     
                 const userImage = document.createElement('img');
-                userImage.src = user.photo;
+                userImage.src = 'images/'+user.creator.photo;
                 userImage.alt = 'Фото пользователя';
                 userImage.classList.add('publication-user-photo');
+                userImage.addEventListener('click', ev => {
+                    location.href = `/student/view/${user.creator.id}`
+                })
     
                 const userName = document.createElement('span');
                 userName.classList.add('publication-user');
-                userName.textContent = user.name;
+                userName.textContent = user.creator.lastname + ' ' + user.creator.firstname;
     
                 const publicationDate = document.createElement('span');
                 publicationDate.classList.add('publication-date');
-                publicationDate.textContent = "Публикация пользователя";
+                publicationDate.textContent = `Количество лайков: ${user.like_count}`;
     
                 userInfo.appendChild(userImage);
                 userInfo.appendChild(userName);
@@ -57,14 +69,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 const publicationContent = document.createElement('div');
                 publicationContent.classList.add('publication-content');
                 const publicationDescription = document.createElement('p');
+                const publicationDescriptionA = document.createElement('a');
+                publicationDescriptionA.href = `/publish/view/${user.id}`
+                publicationDescription.appendChild(publicationDescriptionA)
                 publicationDescription.classList.add('publication-description');
-                publicationDescription.textContent = 'Описание публикации';
+                publicationDescriptionA.textContent = user.title;
                 const publicationSection = document.createElement('span');
                 publicationSection.classList.add('publication-section');
-                publicationSection.textContent = 'Раздел';
+                publicationSection.textContent = user.type;
                 const likeButton = document.createElement('button');
                 likeButton.classList.add('like-button');
                 likeButton.textContent = 'Лайк';
+                likeButton.id = user.id
+                likeButton.addEventListener('click', ev => {
+                    fetch(`${baseUrl}/publish/like?publish_id=${ev.target.id}`).then(res =>{
+                        console.log(res)
+                    })
+                })
                 publicationContent.appendChild(publicationDescription);
                 publicationContent.appendChild(publicationSection);
                 publicationContent.appendChild(likeButton);

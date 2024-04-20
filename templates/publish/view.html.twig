@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="publication-form">
+        <h2 for="author">Автор: {{ publish.student.lastname }} {{ publish.student.firstname }}</h2>
+        <h3 for="title">Название: {{ publish.title }}</h3>
+        <h3 for="section">Раздел: {{ publish.type.name }}</h3>
+        <h4 for="description">Статья:</h4>
+        {{ publish.html|raw }}
+    </div>
+    <style>
+        .publication-form{
+            margin: 10px 5%;
+        }
+    </style>
+{% endblock %}

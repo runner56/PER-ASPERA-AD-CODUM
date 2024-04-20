@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const addPublicationForm = document.getElementById('add-publication-form');
-
+    const addPublicationForm = document.getElementById('publication-form');
     addPublicationForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
 

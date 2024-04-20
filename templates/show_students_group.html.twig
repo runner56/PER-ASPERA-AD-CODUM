@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список студентов группы</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="{{ asset('static/logo.jpg') }}" alt="Логотип">
+    </div>
+    <div class="description">
+        <p>LifeCourse - ваш надежный гид в мире образования!</p>
+        <p>Список студентов группы</p>
+    </div>
+</header>
+
+<nav class="main-menu">
+    <ul>
+        <li><a href="main.html">Главная страница</a></li>
+        <li><a href="feed.html">Лента</a></li>
+        <li><a href="rating.html">Рейтинг</a></li>
+        <li><a href="/student_search">Поиск студента</a></li>
+        <li><a href="/university_search">Поиск вуза</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Список студентов группы 101</h1>
+    <div id="student-list" class="student-list">
+
+    </div>
+</div>
+
+
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
+
+<script src="../public/js/show_students_from_group.js"></script>
+</body>
+</html>
