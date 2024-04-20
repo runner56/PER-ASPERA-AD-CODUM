@@ -23,8 +23,8 @@ class Event
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $html = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
@@ -73,14 +73,14 @@ class Event
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getHtml(): ?string
     {
-        return $this->description;
+        return $this->html;
     }
 
-    public function setDescription(string $description): static
+    public function setHtml(string $description): static
     {
-        $this->description = $description;
+        $this->html = $description;
 
         return $this;
     }

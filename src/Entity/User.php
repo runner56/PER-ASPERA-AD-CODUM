@@ -62,6 +62,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private File $photo;
 
+    #[ORM\ManyToOne(inversedBy: 'students')]
+    private ?TeachGroup $teachGroup = null;
+
+    #[ORM\Column]
+    private ?bool $is_verify = null;
+
     public function __construct()
     {
         $this->created_events = new ArrayCollection();
@@ -265,5 +271,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPhoto(): File
     {
         return $this->photo;
+    }
+
+    public function getTeachGroup(): ?TeachGroup
+    {
+        return $this->teachGroup;
+    }
+
+    public function setTeachGroup(?TeachGroup $teachGroup): static
+    {
+        $this->teachGroup = $teachGroup;
+
+        return $this;
+    }
+
+    public function isVerify(): ?bool
+    {
+        return $this->is_verify;
+    }
+
+    public function setVerify(bool $is_verify): static
+    {
+        $this->is_verify = $is_verify;
+
+        return $this;
     }
 }

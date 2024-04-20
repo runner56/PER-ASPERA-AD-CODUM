@@ -29,6 +29,10 @@ class StudentPublish
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'likes')]
     private Collection $liked_users;
 
+    #[ORM\ManyToOne(inversedBy: 'studentPublishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PublishType $type = null;
+
     public function __construct()
     {
         $this->liked_users = new ArrayCollection();
@@ -86,6 +90,18 @@ class StudentPublish
         if ($this->liked_users->removeElement($likedUser)) {
             $likedUser->removeLike($this);
         }
+
+        return $this;
+    }
+
+    public function getType(): ?PublishType
+    {
+        return $this->type;
+    }
+
+    public function setType(?PublishType $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
