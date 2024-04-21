@@ -4,7 +4,8 @@
     </div>
     <div class="description">
         <p>LifeCourse - ваш надежный гид в мире образования!</p>
-        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для достижения успеха.</p>
+        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для
+            достижения успеха.</p>
     </div>
 </header>
 
@@ -15,12 +16,12 @@
         <li><a href="/rating">Рейтинг</a></li>
         <li><a href="/student/search">Поиск студента</a></li>
         <li><a href="/university/search">Поиск вуза</a></li>
-        <li><a href="/favorites">Избранное</a></li>
         <li><a href="/events">Мероприятия</a></li>
         {% if app.user %}
-        {% if 'ROLE_ADMIN' in app.user.roles %}
-        <li><a href="/teacher/verify">Проверка преподавателей</a></li>
-        {% endif %}
+            <li><a href="/favorites">Избранное</a></li>
+            {% if 'ROLE_ADMIN' in app.user.roles %}
+                <li><a href="/teacher/verify">Проверка преподавателей</a></li>
+            {% endif %}
         {% endif %}
     </ul>
 </nav>
