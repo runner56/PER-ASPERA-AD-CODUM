@@ -120,7 +120,7 @@ header {
 
 /* Стили для кнопки входа */
 .login-button {
-    position: fixed;
+    position: absolute;
     top: 30px;
     right: 60px;
 }
