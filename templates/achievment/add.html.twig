@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="achievement-info">
+        <form method="post">
+            <h2>Добавление достижения студенту</h2>
+            <label for="student_name">Имя студента:</label><br>
+            <input type="text" id="student_name" name="student_name" placeholder="Введите имя студента"
+                   autocomplete="on" required><br>
+            <label for="achievement">Достижение:</label><br>
+            <select id="achievement" name="achievement" required>
+                <option value="" disabled selected>Выберите достижение</option>
+                <option value="Наука">Наука</option>
+                <option value="Спорт">Спорт</option>
+                <option value="Искусство">Искусство</option>
+            </select><br><br>
+            <button type="submit">Добавить достижение</button>
+        </form>
+    </div>
+    <script>
+        let students;
+        fetch(`${baseUrl}/student/search/all`).then(res => res.json()).then(res =>{
+            console.log(res.students)
+            students = res.students
+            $("#student_name").autocomplete({
+                source: students.map(function (student) {
+                    return student.name;
+                }),
+                minLength: 1
+            });
+        })
+
+    </script>
+{% endblock %}
