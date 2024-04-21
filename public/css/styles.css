@@ -11,6 +11,7 @@ body {
      display: flex;
     flex-direction: column;
    min-height: 100vh;
+   margin: 0;
 }
 .container {
     flex: 1;
@@ -132,6 +133,20 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
+    flex-shrink: 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Разделитель между содержимым и футером */
+.landing-description {
+    margin-bottom: auto;
+}
+
+/* Разделитель между меню и футером */
+.main-menu {
+    margin-top: auto;
 }
 
 .company-info p {
