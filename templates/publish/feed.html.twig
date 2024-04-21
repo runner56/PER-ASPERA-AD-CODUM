@@ -108,4 +108,9 @@
         </div>
     </div>
     <script src="{{ asset('js/search.js') }}"></script>
+    <script>
+        document.getElementsByClassName('add-publication-button').item(0).addEventListener('click', evt => {
+            location.href = '/student/publish/add'
+        })
+    </script>
 {% endblock %}
