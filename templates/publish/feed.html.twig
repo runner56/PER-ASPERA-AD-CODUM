@@ -5,32 +5,28 @@
 {% block body %}
     <div class="button-container">
         <button class="add-publication-button">Добавить публикацию</button>
-        <div class="search">
-            <input type="text" id="search-input" placeholder="Поиск...">
-            <button id="search-button">Поиск</button>
-        </div>
         <div class="filter">
             <div class="filter-options">
                 <select name="city" id="city-select">
-                    <option value="" selected>Не выбрано</option>
+                    <option value="" selected>Выберите город</option>
                     {% for city in cities %}
                         <option value="{{ city.city }}">{{ city.city }}</option>
                     {% endfor %}
                 </select>
                 <select name="university" id="university-select">
-                    <option value="" selected>Не выбрано</option>
+                    <option value="" selected>Выберите вуз</option>
                     {% for university in universities %}
                         <option value="{{ university.name }}">{{ university.name }}</option>
                     {% endfor %}
                 </select>
                 <select name="faculty" id="faculty-select">
-                    <option value="" selected>Не выбрано</option>
+                    <option value="" selected>Выберите факультет</option>
                     {% for faculty in faculties %}
                         <option value="{{ faculty.name }}">{{ faculty.name }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <button id="filter-button">Фильтр</button>
+            <button id="search-button">Поиск</button>
         </div>
     </div>
 
