@@ -1,14 +1,134 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="university-info">
+        <form method="post">
+            <button class="upload-button">Сохранить</button>
+            <h3>Название:
+                <input class="basic-in" name="name" value="{{ university.name }}">
+            </h3>
+            <h3>Адрес:
+                <input class="basic-in" name="address" value="{{ university.address }}">
+            </h3>
+            <h3>Город:
+                <input class="basic-in" name="city" value="{{ university.city }}">
+            </h3>
+        </form>
         <h2>Факультеты и кафедры</h2>
-        <h3>Название: {{ university.name }}</h3>
-        <h3>Адрес: {{ university.address }}</h3>
-        <h3>Город: {{ university.city }}</h3>
+        <div>
+            {% for faculty in info %}
+                <div class="faculty">
+                    Факультет: {{ faculty.name }}
+                    {% for kafedra in faculty.kafedras %}
+                        <div class="kafedra">
+                            Кафедра: {{ kafedra.name }}
+                            {% for teachGroup in kafedra.teachGroups %}
+                                <div class="group">
+                                    Группа: {{ teachGroup.name }} / {{ teachGroup.stream_year }}
+                                </div>
+                            {% endfor %}
+                            <div class="group">
+                                <button data-kafedra="{{ kafedra.id }}" class="add-group">Добавить группу</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="kafedra">
+                        <button data-faculty="{{ faculty.id }}" class="add-kafedra">Добавить кафедру</button>
+                    </div>
+                </div>
+            {% endfor %}
+            <div>
+                <button data-university="{{ university.id }}" class="add-faculty">Добавить факультет</button>
+            </div>
+        </div>
     </div>
 
     <div class="university-students">
-        <button><a href="rating.html">Студенты ВУЗа</a></button>
+        <button><a href="/rating?university_id={{ university.id }}">Студенты ВУЗа</a></button>
     </div>
+    <script>
+        for (let it of document.getElementsByClassName('add-group')) {
+            it.addEventListener('click', ev => {
+                const src = ev.target.parentElement.parentElement;
+                const d = document.createElement('div')
+                const i = document.createElement('input')
+                i.name = 'gname'
+                const btn = document.createElement('button')
+                btn.dataset.kafedra = ev.target.dataset.kafedra
+                btn.addEventListener('click', e => {
+                    const k = e.target.dataset.kafedra
+                    const t = e.target.parentElement.children.namedItem('gname').value;
+                    fetch(`${baseUrl}/add/group/${k}?name=${t}`)
+                })
+                btn.innerHTML = 'Сохранить'
+                d.appendChild(i)
+                d.appendChild(btn)
 
+                src.children.item(0).prepend(d)
+            })
+        }
+
+        for (let it of document.getElementsByClassName('add-kafedra')) {
+            it.addEventListener('click', ev => {
+                const src = ev.target.parentElement.parentElement;
+                const d = document.createElement('div')
+                const i = document.createElement('input')
+                i.name = 'kname'
+                const btn = document.createElement('button')
+                btn.dataset.faculty = ev.target.dataset.faculty
+                btn.addEventListener('click', e => {
+                    const k = e.target.dataset.faculty
+                    const t = e.target.parentElement.children.namedItem('kname').value;
+                    fetch(`${baseUrl}/add/kafedra/${k}?name=${t}`)
+                })
+                btn.innerHTML = 'Сохранить'
+                d.appendChild(i)
+                d.appendChild(btn)
+
+                src.children.item(0).prepend(d)
+            })
+        }
+
+        for (let it of document.getElementsByClassName('add-faculty')) {
+            it.addEventListener('click', ev => {
+
+                console.log(ev)
+                const src = ev.target.parentElement.parentElement;
+                const d = document.createElement('div')
+                const i = document.createElement('input')
+                i.name = 'uname'
+                const btn = document.createElement('button')
+                btn.dataset.university = ev.target.dataset.university
+                btn.addEventListener('click', e => {
+                    const k = e.target.dataset.university
+                    const t = e.target.parentElement.children.namedItem('uname').value;
+                    fetch(`${baseUrl}/add/faculty/${k}?name=${t}`)
+                })
+                btn.innerHTML = 'Сохранить'
+                d.appendChild(i)
+                d.appendChild(btn)
+
+                src.children.item(0).prepend(d)
+            })
+        }
+
+    </script>
+    <style>
+        .basic-in {
+            width: 100%;
+            height: 40px;
+            font-size: 1.2em;
+        }
+
+        .faculty {
+            margin: 10px 0;
+        }
+
+        .kafedra {
+            margin-left: 20px;
+        }
+
+        .group {
+            margin-left: 40px;
+        }
+    </style>
 {% endblock %}

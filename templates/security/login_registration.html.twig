@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация - LifeCourse</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/registration.js') }}">
-    <style>
-        .hideme {
-            display: none;
-        }
-    </style>
-
-</head>
-<body>
-<header>
-    <div class="logo">
-        <img src="{{ asset('static/logo.jpg') }}" alt="Логотип">
-    </div>
-    <div class="description">
-        <p>Регистрация - LifeCourse</p>
-    </div>
-</header>
-
-<nav class="main-menu">
-    <ul>
-        <li><a href="main.html">Главная страница</a></li>
-        <li><a href="feed.html">Лента</a></li>
-        <li><a href="rating.html">Рейтинг</a></li>
-        <li><a href="user_profile.html">Профиль студента</a></li>
-        <li><a href="profile_university.html">Профиль вуза</a></li>
-    </ul>
-</nav>
-
+{% extends 'base.html.twig' %}
+{% block body %}
 <div class="registration-form">
     <h2>Регистрация</h2>
     <form method="post">
@@ -72,22 +39,6 @@
         <input type="submit" value="Зарегистрироваться">
     </form>
 </div>
-<footer>
-    <div class="company-info">
-        <p>«ООО СОЗНАНИЕ»</p>
-        <p>Юридический адрес</p>
-        <p>Электронная почта</p>
-    </div>
-    <div class="additional-links">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Условия использования сайта</a>
-        <a href="#">Обратная связь</a>
-        <a href="#">О нас</a>
-        <a href="#">Реклама</a>
-        <a href="#">Партнеры</a>
-    </div>
-</footer>
-</body>
 <script>
     document.getElementById("status").addEventListener('change', ev => {
         const el = document.getElementsByClassName('select-group')
@@ -118,4 +69,4 @@
         })
     })
 </script>
-</html>
+{% endblock %}
