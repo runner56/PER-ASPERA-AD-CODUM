@@ -1852,6 +1852,23 @@ table.verification_table th {
     margin-right: 10px; /* Увеличение отступа между аватаркой и текстом */
 }
 
+@keyframes visitAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.visit-animation {
+    animation: visitAnimation 0.5s ease-in-out;
+}
+
+
 
 
 
