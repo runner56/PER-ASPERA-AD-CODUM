@@ -30,19 +30,6 @@
         </div>
     </div>
 
-    <div class="login-button">
-        {% if app.user %}
-            {% if 'ROLE_STUDENT' in  app.user.roles %}
-                <button onclick="location.href='/student/view/{{ app.user.id }}'">Профиль</button>
-            {% else %}
-                <button onclick="location.href='/university/view/{{ app.user.university.id ?? 1 }}'">Профиль</button>
-            {% endif %}
-            <button onclick="location.href='/logout'">Выйти</button>
-        {% else %}
-            <button onclick="location.href='/login'">Войти</button>
-            <button onclick="location.href='/registration'">Регистрация</button>
-        {% endif %}
-    </div>
 
     <h2>Топ студентов</h2>
     <div class="top-students" style="display: flex; flex-flow: wrap; gap: 10px">

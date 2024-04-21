@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <div class="landing-info">
+        <h1 class="animated-heading">Добро пожаловать в ВУЗ!</h1>
+        <p>Информация о вашем ВУЗе, которую вы можете редактировать из личного кабинета.</p>
+    </div>
+    <div class="main-content">
+    <div class="main-photo-container">
+        <img src="{{ asset('static/main-photo.jpg') }}" alt="Основное фото" style="max-width: 100%; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+    </div>
     <div class="university-info">
         <form method="post">
             {% if has_edit %}
