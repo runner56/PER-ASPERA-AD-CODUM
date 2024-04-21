@@ -1971,6 +1971,97 @@ table.verification_table th {
     background-color: #0056b3;
 }
 
+/* Стили для выбора и отображения достижений */
+.achievement-info {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+}
+
+.achievement-info form {
+    text-align: center;
+}
+
+.achievement-info h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.achievement-info label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.achievement-info select {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.achievement-info button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.achievement-info button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для отображения всех достижений студентов */
+.achievement-info {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px; /* Увеличил максимальную ширину для лучшего отображения */
+}
+
+.achievement-info h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+#achievementsDisplay {
+    text-align: center; /* Центрирование элементов */
+}
+
+#achievementsDisplay ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0;
+}
+
+#achievementsDisplay ul li {
+    display: inline-block; /* Размещаем элементы в ряд */
+    background-color: #f0f0f0; /* Цвет фона квадрата */
+    color: #333;
+    margin: 10px; /* Отступы между квадратами */
+    padding: 10px; /* Отступы внутри квадрата */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.achievement-info h2{
+                        text-align: center;
+                    }
+
+
 
 
 
