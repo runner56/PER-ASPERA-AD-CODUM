@@ -1,69 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Добавить публикацию</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="../public/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-    <header>
-        <div class="logo">
-            <img src="../public/static/logo-new.png" alt="Логотип">
-        </div>
-        <div class="description">
-            <p>Добавление публикации - LifeCourse</p>
-        </div>
-    </header>
-
-    <nav class="main-menu">
-        <ul>
-            <li><a href="main.html">Главная страница</a></li>
-            <li><a href="feed.html">Лента</a></li>
-            <li><a href="rating.html">Рейтинг</a></li>
-            <li><a href="student_search.html">Поиск студента</a></li>
-            <li><a href="university_search.html">Поиск вуза</a></li>
-        </ul>
-    </nav>
-
-    <div class="publication-form">
-        <h2>Добавить новую публикацию</h2>
-        <form id="publication-form">
-            <label for="author">Автор:</label>
-            <input type="text" id="author" name="author" required><br><br>
-            <label for="description">Описание:</label><br>
-            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-            <label for="section">Раздел:</label>
-            <select id="section" name="section" required>
-                <option value="Наука">Наука</option>
-                <option value="Искусство">Искусство</option>
-                <option value="Технологии">Технологии</option>
-                <option value="Путешествия">Путешествия</option>
-                <option value="Фотография">Фотография</option>
-            </select><br><br>
-            <button type="submit">Опубликовать</button>
-        </form>
+<header>
+    <div class="logo">
+        <img src="../public/static/logo-new.png" alt="Логотип">
     </div>
+    <div class="description">
+        <p>LifeCourse - ваш надежный гид в мире образования!</p>
+        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для достижения успеха.</p>
+    </div>
+</header>
 
-    <footer>
-        <div class="company-info">
-            <p>«ООО СОЗНАНИЕ»</p>
-            <p>Юридический адрес</p>
-            <p>Электронная почта</p>
-        </div>
-        <div class="additional-links">
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования сайта</a>
-            <a href="#">Обратная связь</a>
-            <a href="#">О нас</a>
-            <a href="#">Реклама</a>
-            <a href="#">Партнеры</a>
-        </div>
-    </footer>
+<nav class="main-menu">
+    <ul>
+        <li><a href="main.html">Главная страница</a></li>
+        <li><a href="feed.html">Лента</a></li>
+        <li><a href="rating.html">Рейтинг</a></li>
+        <li><a href="student_search.html">Поиск студента</a></li>
+        <li><a href="university_search.html">Поиск вуза</a></li>
+    </ul>
+</nav>
 
-    <script src="../public/js/add_publication.js"></script>
+<div class="add-publication">
+    <h2>Добавить публикацию</h2>
+    <form id="publication-form">
+        <label for="faculty">Факультет:</label><br>
+        <select id="faculty" name="faculty">
+            <option value="Факультет 1">Факультет 1</option>
+            <option value="Факультет 2">Факультет 2</option>
+            <option value="Факультет 3">Факультет 3</option>
+        </select><br><br>
+
+        <label for="group">Группа:</label><br>
+        <select id="group" name="group">
+            <option value="Группа 1">Группа 1</option>
+            <option value="Группа 2">Группа 2</option>
+            <option value="Группа 3">Группа 3</option>
+        </select><br><br>
+
+        <label for="photo">Фото:</label><br>
+        <input type="file" id="photo" name="photo"><br><br>
+
+        <label for="description">Описание публикации:</label><br>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label for="section">Название раздела:</label><br>
+        <select id="section" name="section">
+            <option value="Наука">Наука</option>
+            <option value="Спорт">Спорт</option>
+            <option value="Творчество">Творчество</option>
+            <option value="Волонтерство">Волонтерство</option>
+        </select><br><br>
+
+        <input type="submit" value="Добавить публикацию">
+    </form>
+</div>
+
+
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../public/js/filter.js"></script>
+<script src="../public/js/chart.js"></script>
 </body>
-
 </html>
