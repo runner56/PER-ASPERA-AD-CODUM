@@ -135,28 +135,78 @@ header {
     border-radius: 5px;
 }
 
+/* Добавляем ключевые кадры для анимации */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* Начальное смещение вверх */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Смещение к исходной позиции */
+    }
+}
+
 /* Стили для описания приложения */
 .app-description {
-    padding: 20px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out; /* Применяем анимацию */
 }
 
 .app-description h2 {
-    color: #007bff;
-    margin-bottom: 10px;
+    color: #800080; /* Фиолетовый */
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
 .app-description p {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
 }
 
 .app-description ul {
     list-style-type: none;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .app-description ul li {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 18px;
 }
+
+/* Цвета для разных элементов списка */
+.app-description ul li:nth-of-type(1) {
+    color: #008000; /* Темно-зеленый */
+}
+
+.app-description ul li:nth-of-type(4) {
+    color: #ff0000; /* Красный */
+}
+
+.app-description ul li:nth-of-type(5) {
+    color: #000080; /* Темно-синий */
+}
+
+.app-description ul li:nth-of-type(6) {
+    color: #ff8c00; /* Темно-оранжевый */
+}
+
+/* Цвета для разных элементов списка */
+.app-description ul li:nth-of-type(2) {
+    color: #0000ff; /* Синий */
+}
+
+.app-description ul li:nth-of-type(3) {
+    color: #e0115f; /* Рубиновый */
+}
+
+
 
 /* Стили для секции с кнопками и текстом описания */
 .landing-description {
@@ -170,7 +220,7 @@ header {
     white-space: nowrap;
     border-right: 2px solid transparent;
     margin-left: 450px; /* Устанавливаем отступ слева */
-    animation: typing 24s cubic-bezier(0.5, 0, 0.5, 1) infinite, blink-caret 0.75s step-end infinite;
+    animation: typing 20s cubic-bezier(0.5, 0, 0.5, 1) infinite, blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -1481,6 +1531,229 @@ section ul li a {
 section ul li a:hover {
     text-decoration: none;
     color: #0056b3;
+}
+
+/* Верификация */
+.verification {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.verification_checkbox {}
+
+table.verification_table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table.verification_table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table.verification_table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table.verification_table th,
+table.verification_table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table.verification_table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table.verification_table {
+    border: 0;
+  }
+
+  table.verification_table caption {
+    font-size: 1.3em;
+  }
+
+  table.verification_table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table.verification_table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table.verification_table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table.verification_table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table.verification_table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+#toggles *,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*transition*/
+    -webkit-transition: .25s ease-out;
+    -moz-transition: .25s ease-out;
+    -o-transition: .25s ease-out;
+    transition: .25s ease-out;
+    outline: none;
+    font-family: Helvetica Neue, helvetica, arial, verdana, sans-serif;
+}
+
+
+#toggles {
+    width: 60px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.ios-toggle,
+.ios-toggle:active {
+    position: absolute;
+    top: -5000px;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    border: none;
+    outline: none;
+}
+
+#toggles .checkbox-label {
+    display: block;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    line-height: 1em;
+    width: 100%;
+    height: 36px;
+    /*border-radius*/
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+    background: #288cf7;
+    cursor: pointer;
+}
+
+.checkbox-label:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    line-height: 1em;
+    text-indent: 40px;
+    height: 36px;
+    width: 36px;
+    /*border-radius*/
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    top: 0px;
+    left: 0px;
+    right: auto;
+    background: white;
+    /*box-shadow*/
+    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, .2), 0 0 0 2px rgb(0, 0, 0);
+    -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, .2), 0 0 0 2px rgb(0, 0, 0);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .2), 0 0 0 2px rgb(0, 0, 0);
+}
+
+.checkbox-label:after {
+    content: attr(data-off);
+    display: block;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: -300px;
+    padding: 10px;
+    height: 100%;
+    width: 300px;
+    text-align: right;
+    color: #288cf7;
+    white-space: nowrap;
+}
+
+.ios-toggle:checked+.checkbox-label {
+    /*box-shadow*/
+    -webkit-box-shadow: inset 0 0 0 20px #d9f6ff, 0 0 0 2px #d9f6ff;
+    -moz-box-shadow: inset 0 0 0 20px #d9f6ff(19, 191, 17, 1), 0 0 0 2px #d9f6ff;
+    box-shadow: inset 0 0 0 20px #d9f6ff(19, 191, 17, 1), 0 0 0 2px #d9f6ff;
+}
+
+.ios-toggle:checked+.checkbox-label:before {
+    left: calc(100% - 36px);
+    /*box-shadow*/
+    -webkit-box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, .3);
+}
+
+.ios-toggle:checked+.checkbox-label:after {
+    content: attr(data-on);
+    left: 60px;
+    width: 36px;
+}
+
+/* BLUE CHECKBOX */
+
+#checkbox3+.checkbox-label {
+    /*box-shadow*/
+    -webkit-box-shadow: inset 0 0 0 0px #1fc1c8, 0 0 0 2px lightgreen;
+    -moz-box-shadow: inset 0 0 0 0px #1fc1c8, 0 0 0 2px lightgreen;
+    box-shadow: inset 0 0 0 0px #1fc1c8, 0 0 0 2px lightgreen;
+}
+
+#checkbox3:checked+.checkbox-label {
+    /*box-shadow*/
+    -webkit-box-shadow: inset 0 0 0 20px #1fc1c8, 0 0 0 2px #1fc1c8;
+    -moz-box-shadow: inset 0 0 0 20px #1fc1c8, 0 0 0 2px #1fc1c8;
+    box-shadow: inset 0 0 0 20px #1fc1c8, 0 0 0 2px #1fc1c8;
+}
+
+#checkbox3:checked+.checkbox-label:after {
+    color: #1fc1c8;
 }
 
 
