@@ -36,6 +36,7 @@
         {% for student in top_students %}
             <div class="student-container">
                 <div class="student">
+                    <a href="/student/view/{{ student.id }}">
                     <img src="{{ asset('images/' ~ student.photo) }}" width="150" alt="Фото" id="photo"/>
                     <div class="student-info">
                         <p>Фамилия: {{ student.lastname }}</p>
@@ -44,6 +45,7 @@
                         <p>ВУЗ: {{ student.university }}</p>
                         <p>Факультет: {{ student.faculty }}</p>
                     </div>
+                    </a>
                 </div>
             </div>
         {% endfor %}
