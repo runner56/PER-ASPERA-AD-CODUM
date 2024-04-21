@@ -8,8 +8,16 @@
         <h4 for="description">Статья:</h4>
         {{ event.html|raw }}
     </div>
+    <section class="visitors">
+        <h2>Посетители</h2>
+        {% for it in event.visitors %}
+        <ul>
+            <li><img src="{{ asset('images/' ~it.photo ?? 'student1.jpg' ) }}" alt="Аватар студента 1"><span>{{ it.lastname }} {{ it.firstname }}</span></li>
+        </ul>
+        {% endfor %}
+    </section>
     <style>
-        .publication-form{
+        .publication-form {
             margin: 10px 5%;
         }
     </style>
