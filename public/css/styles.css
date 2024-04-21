@@ -345,6 +345,7 @@ footer {
 .registration-form:hover::after {
     background-color: transparent;
     animation: none;
+    display: none;
 }
 
 @keyframes pulse {
@@ -440,6 +441,7 @@ footer {
 .login-form:hover::after {
     background-color: transparent;
     animation: none;
+    display: none;
 }
 
 @keyframes pulse {
