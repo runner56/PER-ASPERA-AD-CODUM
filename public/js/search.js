@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("test")
-
     let publishes;
     fetch(`${baseUrl}/publish/all`).then(res => res.json()).then(res =>{
         console.log(res)
@@ -17,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     searchButton.addEventListener('click', () => {
         const query = searchInput.value.trim().toLowerCase();
         const results = publishes
-            .filter(publish => publish.title.toLowerCase().includes(query))
-            .filter(publish => publish.creator.city === citySelect.value)
-            .filter(publish => publish.creator.university === universitySelect.value)
-            .filter(publish => publish.creator.faculty === facultySelect.value);
+            .filter(publish => (!query || publish.title.toLowerCase().includes(query)))
+            .filter(publish => (!citySelect.value || publish.creator.city === citySelect.value))
+            .filter(publish => (!universitySelect.value || publish.creator.university === universitySelect.value))
+            .filter(publish => (!facultySelect.value || publish.creator.faculty === facultySelect.value));
         console.log(results)
         displaySearchResults(results);
     });

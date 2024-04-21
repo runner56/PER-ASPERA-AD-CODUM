@@ -33,7 +33,7 @@
     <div class="login-button">
         {% if app.user %}
             {% if 'ROLE_STUDENT' in  app.user.roles %}
-                <button onclick="location.href='/student_profile'">Профиль</button>
+                <button onclick="location.href='/student/view/{{ app.user.id }}'">Профиль</button>
             {% else %}
                 <button onclick="location.href='/university_profile'">Профиль</button>
             {% endif %}

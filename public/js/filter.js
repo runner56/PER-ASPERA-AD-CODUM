@@ -31,15 +31,15 @@ $(document).ready(function () {
         const stream = $("#stream-filter").val();
         const department = $("#department-filter").val();
         const period = $("#period-filter").val();
-        console.log(university, students[0].university)
-        console.log(!university || students[0].university === university)
+        const group = $("#group-filter").val();
         const filteredStudents = students.filter(function (student) {
             return (!city || student.city === city) &&
                 (!university || student.university === university) &&
                 (!faculty || student.faculty === faculty) &&
                 (!stream || student.stream === stream) &&
                 (!department || student.department === department) &&
-                (!period || student.period === period);
+                (!period || student.period === period) &&
+                (!group || student.group === group);
         });
 
         renderStudents(filteredStudents);

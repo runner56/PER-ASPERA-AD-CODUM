@@ -26,9 +26,20 @@ class AppFixtures extends Fixture
             ->setStar(0)
             ->setVerify(true);
         $user1->setPassword($this->hasher->hashPassword($user1, "admin"));
-        $manager->persist($user1);
-        $manager->flush();
-        ##############################
 
+        $teachGroup = $manager->getRepository(TeachGroup::class)->findOneBy(['id' => '15']);
+        $user = (new User())
+            ->setEmail("prohor30@gmail.com")
+            ->setUsername("prohor30")
+            ->setFirstname("Прохор Порфирьевич")
+            ->setLastname("Смольянинов")
+            ->setRoles(['ROLE_STUDENT'])
+            ->setStar(0)
+            ->setPhoto("student18.jpg")
+            ->setTeachGroup($teachGroup);
+        $user->setPassword($this->hasher->hashPassword($user1, "password"));
+        $manager->persist($user);
+
+        ##############################
     }
 }

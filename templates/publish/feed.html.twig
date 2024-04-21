@@ -9,16 +9,19 @@
         <div class="filter">
             <div class="filter-options">
                 <select name="city" id="city-select">
+                    <option value="" selected>Не выбрано</option>
                     {% for city in cities %}
                         <option value="{{ city.city }}">{{ city.city }}</option>
                     {% endfor %}
                 </select>
                 <select name="university" id="university-select">
+                    <option value="" selected>Не выбрано</option>
                     {% for university in universities %}
                         <option value="{{ university.name }}">{{ university.name }}</option>
                     {% endfor %}
                 </select>
                 <select name="faculty" id="faculty-select">
+                    <option value="" selected>Не выбрано</option>
                     {% for faculty in faculties %}
                         <option value="{{ faculty.name }}">{{ faculty.name }}</option>
                     {% endfor %}
