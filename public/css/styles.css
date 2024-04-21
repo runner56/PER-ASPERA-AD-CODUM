@@ -315,7 +315,7 @@ footer {
     justify-content: flex-start; /* Изменено с center на flex-start */
     gap: 20px;
     flex-direction: row; /* Добавлено */
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 .student {
@@ -1918,6 +1918,59 @@ table.verification_table th {
 .university-info button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+/* Стили для добавления достижения студенту */
+.achievement-info {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+}
+
+.achievement-info form {
+    text-align: center;
+}
+
+.achievement-info h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.achievement-info label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.achievement-info input[type="text"],
+.achievement-info select {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.achievement-info button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.achievement-info button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
 
 
 
