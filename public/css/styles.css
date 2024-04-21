@@ -1868,6 +1868,59 @@ table.verification_table th {
     animation: visitAnimation 0.5s ease-in-out;
 }
 
+/* Стили для добавления вуза */
+.university-info {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+}
+
+.university-info form {
+    text-align: center;
+}
+
+.university-info h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.university-info label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.university-info input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.university-info button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.university-info button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+
 
 
 
