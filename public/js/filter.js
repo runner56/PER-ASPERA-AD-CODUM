@@ -8,8 +8,7 @@ $(document).ready(function () {
 
     function renderStudents(filteredStudents) {
         $("#student-list").empty();
-        console.log(filteredStudents.slice(0, 20))
-        filteredStudents.slice(0, 20).forEach(function (student, index) {
+        filteredStudents.slice(0, 50).forEach(function (student, index) {
             const studentElement = `
                 <div class="student-info">
                     <span class="ranking-number">${index + 1}.</span>
