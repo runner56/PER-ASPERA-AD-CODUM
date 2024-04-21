@@ -33,9 +33,9 @@
     <div class="login-button">
         {% if app.user %}
             {% if 'ROLE_STUDENT' in  app.user.roles %}
-                <button onclick="location.href='/student_profile'">Профиль</button>
+                <button onclick="location.href='/student/view/{{ app.user.id }}'">Профиль</button>
             {% else %}
-                <button onclick="location.href='/university_profile'">Профиль</button>
+                <button onclick="location.href='/university/view/1'">Профиль</button>
             {% endif %}
         {% else %}
             <button onclick="location.href='/login'">Войти</button>
@@ -47,7 +47,7 @@
         <h2>Топ студентов</h2>
         {% for student in top_students %}
             <img src="{{ asset('images/' ~ student.photo) }}" width="150" alt="Фото" id="photo"/>
-            <div class="student-info">
+            <div class="student-info" onclick="location.href='/student/view/{{ student.id }}'">
                 <p>Фамилия: {{ student.lastname }}</p>
                 <p>Имя: {{ student.firstname }}</p>
                 <p>Город: {{ student.city }}</p>

@@ -65,8 +65,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'students')]
     private ?TeachGroup $teachGroup = null;
 
-    #[ORM\Column]
-    private ?bool $is_verify = null;
+    #[ORM\Column(options: ['default' => true])]
+    private ?bool $is_verify = true;
 
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;

@@ -12,8 +12,9 @@ class IndexV2Controller extends AbstractController
     #[Route('/')]
     public function index(UserRepository $repository)
     {
+        $t = $repository->fetchTopStudents();
         return $this->render('shared/index.html.twig', [
-            'top_students' => $repository->fetchTopStudents()
+            'top_students' =>  $t
         ]);
     }
 }

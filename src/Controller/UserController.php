@@ -31,6 +31,13 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[Route('/student/super_filter')]
+    public function studentSF(Request $request)
+    {
+        $q = $request->query->all();
+        return $this->render("student/show.html.twig", $q);
+    }
+
     #[Route('/student_profile', name: 'student_profile')]
     public function studentProfile(#[CurrentUser] User $user, StudentPublishRepository $repository,)
     {

@@ -6,6 +6,9 @@ var studentData = [80, 75, 90, 85, 88, 70, 82, 95, 1, 100]; // Пример ре
 var sortedData = studentData.slice().sort((a, b) => b - a);
 var sortedLabels = sortedData.map((_, index) => studentLabels[studentData.indexOf(sortedData[index])]);
 
+console.log(sortedLabels)
+console.log(sortedData)
+
 var studentChartData = {
     labels: sortedLabels,
     datasets: [{

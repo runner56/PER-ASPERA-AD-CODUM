@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="filters" style="display: none">
+    <h2>Фильтры</h2>
+    <div class="filter-option">
+        <label for="city-filter">По городам:</label>
+        <select id="city-filter">
+            {% if city_city is defined %}
+                <option value="{{ city_city }}" selected>{{ city_city }}</option>
+            {% else %}
+                <option value="" selected>Не выбрано</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="university-filter">По вузам:</label>
+        <select id="university-filter">
+            <!-- Опции для выбора вузов -->
+            {% if university is defined %}
+                <option value="{{ university }}" selected>{{ university }}</option>
+            {% else %}
+                <option value="" selected>Не выбрано</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="faculty-filter">По факультетам:</label>
+        <select id="faculty-filter">
+            {% if faculty is defined %}
+                <option value="{{ faculty }}" selected>{{ faculty }}</option>
+            {% else %}
+                <option value="" selected>Не выбрано</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="stream-filter">По потокам:</label>
+        <select id="stream-filter">
+            {% if year_stream is defined %}
+                <option value="{{ year_stream }}" selected>{{ year_stream }}</option>
+            {% else %}
+                <option value="" selected>Не выбрано</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="department-filter">По кафедрам:</label>
+        <select id="department-filter">
+            {% if kafedra is defined %}
+                <option value="{{ kafedra }}" selected>{{ kafedra }}</option>
+            {% else %}
+                <option value="" selected>Не выбрано</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="group-filter">По группам:</label>
+        <select id="group-filter">
+            {% if group is defined %}
+                <option value="{{ group }}" selected>{{ group }}</option>
+            {% else %}
+                <option value="" selected>Не выбрано</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="filter-option">
+        <label for="period-filter">По периоду:</label>
+        <input type="text" id="period-filter" placeholder="YYYY">
+    </div>
+    <button id="apply-filters">Применить фильтры</button>
+</div>
+
+<div class="ranking">
+    <h2>Студенты</h2>
+    <div id="student-list">
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="{{ asset('js/filter.js') }}"></script>
+{% endblock %}

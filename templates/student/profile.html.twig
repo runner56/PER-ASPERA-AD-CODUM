@@ -20,7 +20,7 @@
                 <p><strong>Кафедра:</strong> {{ user.teachGroup.kafedra.name }}</p>
                 <p><strong>Поток:</strong> {{ user.teachGroup.streamYear }}</p>
                 <p><strong>Группа:</strong> <a
-                            href="/groups/view/{{ user.teachGroup.id }}">{{ user.teachGroup.name }}</a></p>
+                            href="/student/super_filter?group={{ user.teachGroup.name }}">{{ user.teachGroup.name }}</a></p>
                 <p><strong>Место в рейтинге по потоку:</strong> 5</p>
                 <p><strong>Общее количество «звездочек»:</strong> {{ user.star }}</p>
                 <p><strong>Достижения в науке:</strong> <a href="достижения_науке.html">Посмотреть список (20)</a></p>

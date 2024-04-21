@@ -64,7 +64,7 @@ class PublishController extends AbstractController
                 'is_like' => $publish->getLikedUsers()->contains($user),
                 'title' => $publish->getTitle(),
                 'type' => $publish->getType()->getName(),
-                'creator' => $userRepository->fetchStudent($user->getId())
+                'creator' => $userRepository->fetchStudent($publish->getStudent())
             ];
         }, $repository->findAll());
 
