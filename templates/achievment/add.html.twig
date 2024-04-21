@@ -4,8 +4,7 @@
         <form method="post">
             <h2>Добавление достижения студенту</h2>
             <label for="student_name">Имя студента:</label><br>
-            <input type="text" id="student_name" name="student_name" placeholder="Введите имя студента"
-                   autocomplete="on" required><br>
+            <input type="text" id="student_name" name="student_name">
             <label for="achievement">Достижение:</label><br>
             <select id="achievement" name="achievement" required>
                 <option value="" disabled selected>Выберите достижение</option>
@@ -16,6 +15,10 @@
             <button type="submit">Добавить достижение</button>
         </form>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         let students;
         fetch(`${baseUrl}/student/search/all`).then(res => res.json()).then(res =>{

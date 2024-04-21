@@ -90,6 +90,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Event::class, mappedBy: 'like_users')]
     private Collection $liked_events;
 
+    /**
+     * @var Collection<int, Achievment>
+     */
+    #[ORM\OneToMany(targetEntity: Achievment::class, mappedBy: 'student')]
+    private Collection $achievments;
+
     public function __construct()
     {
         $this->created_events = new ArrayCollection();
@@ -97,6 +103,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->studentPublishes = new ArrayCollection();
         $this->likes = new ArrayCollection();
         $this->liked_events = new ArrayCollection();
+        $this->achievments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -402,6 +409,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->liked_events->removeElement($likedEvent)) {
             $likedEvent->removeLikeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Achievment>
+     */
+    public function getAchievments(): Collection
+    {
+        return $this->achievments;
+    }
+
+    public function addAchievment(Achievment $achievment): static
+    {
+        if (!$this->achievments->contains($achievment)) {
+            $this->achievments->add($achievment);
+            $achievment->setStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAchievment(Achievment $achievment): static
+    {
+        if ($this->achievments->removeElement($achievment)) {
+            // set the owning side to null (unless already changed)
+            if ($achievment->getStudent() === $this) {
+                $achievment->setStudent(null);
+            }
         }
 
         return $this;
