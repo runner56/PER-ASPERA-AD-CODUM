@@ -11,21 +11,21 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, hsl(195, 100%, 90%), #89b8ff); /* Начальный градиент */
-    animation: gradientAnimation 100s linear infinite; /* Плавная анимация градиента */
+    background: linear-gradient(to bottom, hsl(195, 100%, 90%), #edf3ff); /* Начальный градиент */
+    animation: gradientAnimation 48s linear infinite; /* Плавная анимация градиента */
     transition: background-color 2s; /* Плавный переход цвета фона */
 }
 
 /* Ключевые кадры анимации для плавного градиента */
 @keyframes gradientAnimation {
     0%, 100% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 90%), #89b8ff); /* Начальный и конечный градиенты */
+        background: linear-gradient(to bottom, #dbe7ff, #edf3ff); /* Начальный и конечный градиенты */
     }
     5% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 92%), hsl(195, 100%, 94%)); /* Градиент от более светлого голубого к еще светлее */
+        background: linear-gradient(to bottom, #dbe7ff, hsl(195, 100%, 94%)); /* Градиент от #dbe7ff к более светлому цвету */
     }
     10% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 92%), hsl(195, 100%, 94%)); /* Градиент от более светлого голубого к еще светлее */
+        background: linear-gradient(to bottom, #dbe7ff, hsl(195, 100%, 94%)); /* Градиент от #dbe7ff к более светлому цвету */
     }
     15% {
         background: linear-gradient(to bottom, hsl(195, 100%, 94%), hsl(195, 100%, 96%));
@@ -34,53 +34,51 @@ body {
         background: linear-gradient(to bottom, hsl(195, 100%, 96%), hsl(195, 100%, 98%));
     }
     25% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #89b8ff); /* Градиент к #89b8ff */
+        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #edf3ff); /* Градиент к #edf3ff */
     }
     30% {
-        background: linear-gradient(to bottom, #89b8ff, #7ab5ff);
+        background: linear-gradient(to bottom, #edf3ff, #edf3ff);
     }
     35% {
-        background: linear-gradient(to bottom, #7ab5ff, hsl(195, 100%, 94%));
+        background: linear-gradient(to bottom, #edf3ff, hsl(195, 100%, 94%));
     }
     40% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 94%), hsl(195, 100%, 92%));
+        background: linear-gradient(to bottom, hsl(195, 100%, 94%), hsl(195, 100%, 94%));
     }
     45% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 92%), #89b8ff);
+        background: linear-gradient(to bottom, hsl(195, 100%, 94%), #edf3ff);
     }
     50% {
-        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 92%));
+        background: linear-gradient(to bottom, #edf3ff, hsl(195, 100%, 94%));
     }
     55% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 92%), #7ab5ff);
+        background: linear-gradient(to bottom, hsl(195, 100%, 94%), #edf3ff);
     }
     60% {
-        background: linear-gradient(to bottom, #7ab5ff, #89b8ff);
+        background: linear-gradient(to bottom, #edf3ff, #edf3ff);
     }
     65% {
-        background: linear-gradient(to bottom, #89b8ff, #7ab5ff);
+        background: linear-gradient(to bottom, #edf3ff, #edf3ff);
     }
     70% {
-        background: linear-gradient(to bottom, #7ab5ff, #89b8ff);
+        background: linear-gradient(to bottom, #edf3ff, #edf3ff);
     }
     75% {
-        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 98%)); /* Градиент к #89b8ff */
+        background: linear-gradient(to bottom, #edf3ff, hsl(195, 100%, 98%)); /* Градиент к #edf3ff */
     }
     80% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #89b8ff);
+        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #edf3ff);
     }
     85% {
-        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 98%));
+        background: linear-gradient(to bottom, #edf3ff, hsl(195, 100%, 98%));
     }
     90% {
-        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #89b8ff);
+        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #edf3ff);
     }
     95% {
-        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 98%));
+        background: linear-gradient(to bottom, #edf3ff, hsl(195, 100%, 98%));
     }
 }
-
-
 
 
 .container {
