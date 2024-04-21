@@ -6,6 +6,7 @@
     <title>Рейтинг студентов</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="../public/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <header>
@@ -74,6 +75,13 @@
     </div>
 </div>
 
+<div class="ranking2">
+    <h2>Диаграмма рейтинга студентов</h2>
+    <div id="student-list2">
+        <canvas id="chart"></canvas>
+    </div>
+</div>
+
 <footer>
     <div class="company-info">
         <p>«ООО СОЗНАНИЕ»</p>
@@ -93,5 +101,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="../public/js/filter.js"></script>
+<script src="../public/js/chart.js"></script>
 </body>
 </html>

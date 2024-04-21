@@ -8,10 +8,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
-     display: flex;
+    display: flex;
     flex-direction: column;
-   min-height: 100vh;
-   margin: 0;
+    min-height: 100vh;
+    margin: 0; /* Добавлено для сброса отступов */
 }
 .container {
     flex: 1;
@@ -130,23 +130,10 @@ header {
 /* Стили для футера */
 footer {
     background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    flex-shrink: 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Разделитель между содержимым и футером */
-.landing-description {
-    margin-bottom: auto;
-}
-
-/* Разделитель между меню и футером */
-.main-menu {
-    margin-top: auto;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin-top: auto;
 }
 
 .company-info p {
@@ -179,9 +166,9 @@ footer {
 
 /* Стили для блока студента */
 .student {
-    display: inline-block; 
-    text-align: center; 
-    margin-right: 20px; 
+    display: inline-block;
+    text-align: center;
+    margin-right: 20px;
 }
 
 /* Добавляем стили для изображения профиля студента */
@@ -189,10 +176,10 @@ footer {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-bottom: 5px; 
-    margin-left: auto; 
-    margin-right: auto; 
-    display: block; 
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 
@@ -261,8 +248,8 @@ footer {
     border: 1px solid #ccc;
     background-color: #fff;
     appearance: none;
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 /* Стили для опций в выпадающих списках */
