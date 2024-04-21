@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\StudentPublish;
 use App\Entity\User;
+use App\Repository\EventRepository;
 use App\Repository\FacultyRepository;
 use App\Repository\KafedraRepository;
 use App\Repository\PublishTypeRepository;
@@ -67,11 +68,19 @@ class PublishController extends AbstractController
                 'creator' => $userRepository->fetchStudent($publish->getStudent())
             ];
         }, $repository->findAll());
-
         return $this->json([
             'status' => 'ok',
             'publishes' => $publishes
         ]);
+    }
+
+    #[Route('/publish/like')]
+    public function like(Request $request, #[CurrentUser] User $user, StudentPublishRepository $repository, EntityManagerInterface $em)
+    {
+        $id = $request->get('publish_id');
+        $repository->findOneBy(['id' => $id])->addLikedUser($user);
+        $em->flush();
+        return $this->json(['status'=> 'ok']);
     }
 
     #[Route('/student/publish/add', methods: ['POST'])]

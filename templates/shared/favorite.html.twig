@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<main>
+    <section id="events">
+        <h2>Мероприятия</h2>
+        <ul>
+            {% for event in events %}
+            <li><a href="/event/view/{{ event.id }}">{{ event.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section id="publications">
+        <h2>Публикации</h2>
+        <ul>
+            {% for publish in publishes %}
+                <li><a href="/publish/view/{{ publish.id }}">{{ publish.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %}

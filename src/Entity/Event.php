@@ -39,9 +39,17 @@ class Event
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'visited_events')]
     private Collection $visitors;
 
+    /**
+     * @var Collection<int, User>
+     */
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'liked_events')]
+    #[ORM\JoinTable('user_event_like')]
+    private Collection $like_users;
+
     public function __construct()
     {
         $this->visitors = new ArrayCollection();
+        $this->like_users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,6 +137,30 @@ class Event
     public function removeVisitor(User $visitor): static
     {
         $this->visitors->removeElement($visitor);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getLikeUsers(): Collection
+    {
+        return $this->like_users;
+    }
+
+    public function addLikeUser(User $likeUser): static
+    {
+        if (!$this->like_users->contains($likeUser)) {
+            $this->like_users->add($likeUser);
+        }
+
+        return $this;
+    }
+
+    public function removeLikeUser(User $likeUser): static
+    {
+        $this->like_users->removeElement($likeUser);
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\EventType;
 use App\Entity\PublishType;
 use App\Entity\TeachGroup;
 use App\Entity\University;
@@ -16,12 +17,21 @@ class AppFixtures extends Fixture
     {
     }
 
+
     public function load(ObjectManager $manager): void
     {
         ##############################
-        $it = (new PublishType())->setName('профориентация');
+        $it = (new EventType())->setName('профориентация')->setWeight(5);
         $manager->persist($it);
-        $it = (new PublishType())->setName('волонтёрская деятельность');
+        $it = (new EventType())->setName('волонтёрская деятельность')->setWeight(4);
+        $manager->persist($it);
+        $it = (new EventType())->setName('Наука')->setWeight(7);
+        $manager->persist($it);
+        $it = (new EventType())->setName('Фотографии')->setWeight(3);
+        $manager->persist($it);
+        $it = (new EventType())->setName('Путешествия')->setWeight(4);
+        $manager->persist($it);
+        $it = (new EventType())->setName('Спорт')->setWeight(3);
         $manager->persist($it);
         $manager->flush();
        ##############################

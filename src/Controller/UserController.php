@@ -85,4 +85,16 @@ class UserController extends AbstractController
             'groups' => $teachGroupRepository->findAll()
         ]);
     }
+
+    #[Route('teacher/verify')]
+    public function teacherVerify(#[CurrentUser] User $user, UserRepository $repository)
+    {
+        if (!in_array("ROLE_ADMIN", $user->getRoles())) {
+            return $this->redirectToRoute("app_login");
+        }
+        $teachers = $repository->findBy(['is_verify' => false]);
+        return $this->render("teacher/verification.html.twig", [
+            'teachers' => $teachers
+        ]);
+    }
 }

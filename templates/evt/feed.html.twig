@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="button-container">
-        <button class="add-publication-button">Добавить публикацию</button>
+        {% if app.user is defined %}
+        {% if 'ROLE_STUDENT' not in app.user.roles %}
+        <button class="add-publication-button">Добавить мероприятие</button>
+        {% endif %}
+        {% endif %}
         <div class="search">
             <input type="text" id="search-input" placeholder="Поиск...">
             <button id="search-button">Поиск</button>
@@ -33,10 +37,10 @@
 
     <div class="publications" id="publications-container">
     </div>
-    <script src="{{ asset('js/search.js') }}"></script>
+    <script src="{{ asset('js/search_events.js') }}"></script>
     <script>
         document.getElementsByClassName('add-publication-button').item(0).addEventListener('click', evt => {
-            location.href = '/student/publish/add'
+            location.href = '/event/add'
         })
     </script>
 {% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <nav class="main-menu">
+        <ul>
+            <li><a href="main.html">Главная страница</a></li>
+            <li><a href="feed.html">Лента</a></li>
+            <li><a href="rating.html">Рейтинг</a></li>
+            <li><a href="student_search.html">Поиск студента</a></li>
+            <li><a href="university_search.html">Поиск вуза</a></li>
+        </ul>
+    </nav>
+
+    <div class="verification">
+        <table class="verification_table">
+            <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Университет</th>
+                <th>Фото</th>
+                <th>Подтвержен</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for teacher in teachers %}
+                {% if 'ROLE_TEACHER' in teacher.roles %}
+                    <td>{{ teacher.lastname }} {{ teacher.firstname }}</td>
+                    <td>{{ teacher.university.name }}</td>
+                    <td><img width="80%" src="{{ asset('images/' ~ teacher.photo ?? 't' ) }}" alt=""></td>
+                    <td>
+                        <div id="toggles">
+                            <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle"/>
+                            <label for="checkbox1" class="checkbox-label" data-off="подтвержден"
+                                   data-on="не подтвержден"></label>
+                        </div>
+                    </td>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <script>
+            $(document).ready(function () {
+//   Hide the border by commenting out the variable below
+                var $on = 'section';
+                $($on).css({
+                    'background': 'none',
+                    'border': 'none',
+                    'box-shadow': 'none'
+                });
+            });
+        </script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+{% endblock %}
