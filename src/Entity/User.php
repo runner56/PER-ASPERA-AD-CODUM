@@ -66,7 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?TeachGroup $teachGroup = null;
 
     #[ORM\Column(options: ['default' => true])]
-    private ?bool $is_verify = null;
+    private ?bool $is_verify = true;
 
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;

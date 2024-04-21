@@ -117,6 +117,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->setParameter('roles', '%ROLE_STUDENT%')
             ->orderBy('u.star', 'desc')
             ->getQuery()
+            ->setMaxResults(20)
             ->getResult();
     }
 

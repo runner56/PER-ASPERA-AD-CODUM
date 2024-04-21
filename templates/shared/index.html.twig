@@ -47,7 +47,7 @@
         <h2>Топ студентов</h2>
         {% for student in top_students %}
             <img src="{{ asset('images/' ~ student.photo) }}" width="150" alt="Фото" id="photo"/>
-            <div class="student-info">
+            <div class="student-info" onclick="location.href='/student/view/{{ student.id }}'">
                 <p>Фамилия: {{ student.lastname }}</p>
                 <p>Имя: {{ student.firstname }}</p>
                 <p>Город: {{ student.city }}</p>
