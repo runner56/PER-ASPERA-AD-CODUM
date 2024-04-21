@@ -1,0 +1,18 @@
+требования:
+mysql 8.2
+nginx
+symfony-cli
+php8.2 с расширениями
+composer
+
+0)установить symfony https://symfony.com/doc/current/setup.html
+
+1) склонировать репозиторий
+2) composer update
+3) создать бд perasper
+4) загрузить дамп бд perasper.dump.sql
+5) настроить .env файл
+DATABASE_URL - прописать логин и пароль от пользователя бд
+CORS_ALLOW_ORIGIN = "*"
+6) прописать адрес сервера - baseUrl в public/js/mixin  (http://127.0.0.1:8000)
+6)symfony serve
