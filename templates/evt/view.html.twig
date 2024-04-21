@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="publication-form">
+        <h2 for="author">Организатор: {{ event.creator.lastname }} {{ event.creator.firstname }}</h2>
+        <h3 for="title">Название: {{ event.name }}</h3>
+        <h3 for="title">Раздел: {{ event.eventType.name }}</h3>
+        <h3 for="section">Дата проведения: {{ event.date|date("F j, Y") }}</h3>
+        <h4 for="description">Статья:</h4>
+        {{ event.html|raw }}
+    </div>
+    <style>
+        .publication-form{
+            margin: 10px 5%;
+        }
+    </style>
+{% endblock %}
