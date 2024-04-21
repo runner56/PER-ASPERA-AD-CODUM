@@ -175,4 +175,23 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery()
             ->getResult();
     }
+
+    public function fetchTeacher($id)
+    {        return $this->createQueryBuilder('u')
+        ->select(
+            'un.name as university',
+            'u.id as id',
+            'un.city as city',
+            'u.photo',
+            'u.star',
+            'u.lastname',
+            'u.firstname',
+        )
+        ->innerJoin(University::class, 'un', 'with', 'u.university = un')
+        ->where('u.roles not like :roles and u.id = :id')
+        ->setParameter('roles', '%ROLE_STUDENT%')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
 }

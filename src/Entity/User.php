@@ -83,12 +83,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?University $university = null;
 
+    /**
+     * @var Collection<int, Event>
+     */
+    #[ORM\JoinTable('user_event_like')]
+    #[ORM\ManyToMany(targetEntity: Event::class, mappedBy: 'like_users')]
+    private Collection $liked_events;
+
     public function __construct()
     {
         $this->created_events = new ArrayCollection();
         $this->visited_events = new ArrayCollection();
         $this->studentPublishes = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->liked_events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -368,6 +376,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUniversity(?University $university): static
     {
         $this->university = $university;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getLikedEvents(): Collection
+    {
+        return $this->liked_events;
+    }
+
+    public function addLikedEvent(Event $likedEvent): static
+    {
+        if (!$this->liked_events->contains($likedEvent)) {
+            $this->liked_events->add($likedEvent);
+            $likedEvent->addLikeUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLikedEvent(Event $likedEvent): static
+    {
+        if ($this->liked_events->removeElement($likedEvent)) {
+            $likedEvent->removeLikeUser($this);
+        }
 
         return $this;
     }

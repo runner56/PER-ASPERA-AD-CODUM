@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг студентов</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="../public/static/logo-new.png" alt="Логотип">
+    </div>
+    <div class="description">
+        <p>LifeCourse - ваш надежный гид в мире образования!</p>
+        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для достижения успеха.</p>
+    </div>
+</header>
+
+<nav class="main-menu">
+    <ul>
+        <li><a href="main.html">Главная страница</a></li>
+        <li><a href="feed.html">Лента</a></li>
+        <li><a href="rating.html">Рейтинг</a></li>
+        <li><a href="student_search.html">Поиск студента</a></li>
+        <li><a href="university_search.html">Поиск вуза</a></li>
+    </ul>
+</nav>
+
+<div class="verification">
+    <table class="verification_table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Университет</th>
+                <th>Фото</th>
+                <th>Подтвержен</th>
+            </tr>
+        </thead>
+        <tbody>
+                        
+            <tr>
+                <td>Петров Петр Иванович</td>
+                <td>Оренбургский государственый университет</td>
+                <td><img width="80%" src="#" alt=""></td>
+                <td>
+                    <div id="toggles">
+                        <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle" />
+                        <label for="checkbox1" class="checkbox-label" data-off="подтвержден" data-on="не подтвержден"></label>
+                      </div>
+                </td>
+            </tr>
+                        
+            <tr>
+                <td>Петров Петр Иванович</td>
+                <td>Оренбургский государственый университет</td>
+                <td><img width="80%" src="#" alt=""></td>
+                <td>
+                    <div id="toggles">
+                        <input type="checkbox" name="checkbox2" id="checkbox2" class="ios-toggle" />
+                        <label for="checkbox2" class="checkbox-label" data-off="подтвержден" data-on="не подтвержден"></label>
+                      </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Петров Петр Иванович</td>
+                <td>Оренбургский государственый университет</td>
+                <td><img width="80%" src="#" alt=""></td>
+                <td>
+                    <div id="toggles">
+                        <input type="checkbox" name="checkbox3" id="checkbox3" class="ios-toggle" />
+                        <label for="checkbox3" class="checkbox-label" data-off="подтвержден" data-on="не подтвержден"></label>
+                      </div>
+                </td>
+            </tr>
+
+
+          
+
+        </tbody>
+    </table>
+    <script>
+        $( document ).ready(function(){
+//   Hide the border by commenting out the variable below
+    var $on = 'section';
+    $($on).css({
+      'background':'none',
+      'border':'none',
+      'box-shadow':'none'
+    });
+});
+    </script>
+</div>
+
+
+
+
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../public/js/filter.js"></script>
+<script src="../public/js/chart.js"></script>
+</body>
+</html>

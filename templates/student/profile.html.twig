@@ -34,7 +34,9 @@
         <div class="publication-photos">
             <div style="display: flex;justify-content: space-between; align-items: center">
                 <h3>Фотографии публикаций студента</h3>
+                {% if app.user %}
                 <a href="/student/publish/add" class="upload-button">Добавить публикацию</a>
+                {% endif %}
             </div>
             {% for publish in publishes %}
                 <div class="publish-item">

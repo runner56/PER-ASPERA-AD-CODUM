@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="publication-form">
+        <h2 for="author">Организатор: {{ event.creator.lastname }} {{ event.creator.firstname }}</h2>
+        <h3 for="title">Название: {{ event.name }}</h3>
+        <h3 for="title">Раздел: {{ event.eventType.name }}</h3>
+        <h3 for="section">Дата проведения: {{ event.date|date("F j, Y") }}</h3>
+        <h4 for="description">Статья:</h4>
+        {{ event.html|raw }}
+    </div>
+    <section class="visitors">
+        <h2>Посетители</h2>
+        {% for it in event.visitors %}
+        <ul>
+            <li><img src="{{ asset('images/' ~it.photo ?? 'student1.jpg' ) }}" alt="Аватар студента 1"><span>{{ it.lastname }} {{ it.firstname }}</span></li>
+        </ul>
+        {% endfor %}
+    </section>
+    <style>
+        .publication-form {
+            margin: 10px 5%;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="button-container">
+        {% if app.user is defined %}
+        {% if 'ROLE_STUDENT' not in app.user.roles %}
+        <button class="add-publication-button">Добавить мероприятие</button>
+        {% endif %}
+        {% endif %}
+        <div class="search">
+            <input type="text" id="search-input" placeholder="Поиск...">
+            <button id="search-button">Поиск</button>
+        </div>
+        <div class="filter">
+            <div class="filter-options">
+                <select name="city" id="city-select">
+                    <option value="" selected>Не выбрано</option>
+                    {% for city in cities %}
+                        <option value="{{ city.city }}">{{ city.city }}</option>
+                    {% endfor %}
+                </select>
+                <select name="university" id="university-select">
+                    <option value="" selected>Не выбрано</option>
+                    {% for university in universities %}
+                        <option value="{{ university.name }}">{{ university.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="faculty" id="faculty-select">
+                    <option value="" selected>Не выбрано</option>
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.name }}">{{ faculty.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button id="filter-button">Фильтр</button>
+        </div>
+    </div>
+
+    <div class="publications" id="publications-container">
+    </div>
+    <script src="{{ asset('js/search_events.js') }}"></script>
+    <script>
+        document.getElementsByClassName('add-publication-button').item(0).addEventListener('click', evt => {
+            location.href = '/event/add'
+        })
+    </script>
+{% endblock %}

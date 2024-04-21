@@ -30,34 +30,24 @@
         </div>
     </div>
 
-    <div class="login-button">
-        {% if app.user %}
-            {% if 'ROLE_STUDENT' in  app.user.roles %}
-                <button onclick="location.href='/student/view/{{ app.user.id }}'">Профиль</button>
-            {% else %}
-                <button onclick="location.href='/university/view/{{ app.user.university.id }}'">Профиль</button>
-            {% endif %}
-            <button onclick="location.href='/logout'">Выйти</button>
-        {% else %}
-            <button onclick="location.href='/login'">Войти</button>
-            <button onclick="location.href='/registration'">Регистрация</button>
-        {% endif %}
-    </div>
 
-    <div class="top-students">
-        <h2>Топ студентов</h2>
+    <h2>Топ студентов</h2>
+    <div class="top-students" style="display: flex; flex-flow: wrap; gap: 10px">
         {% for student in top_students %}
-            <img src="{{ asset('images/' ~ student.photo) }}" width="150" alt="Фото" id="photo"/>
-            <div class="student-info" onclick="location.href='/student/view/{{ student.id }}'">
-                <p>Фамилия: {{ student.lastname }}</p>
-                <p>Имя: {{ student.firstname }}</p>
-                <p>Город: {{ student.city }}</p>
-                <p>ВУЗ: {{ student.university }}</p>
-                <p>Факультет: {{ student.faculty }}</p>
+            <div class="student-container">
+                <div class="student">
+                    <a href="/student/view/{{ student.id }}">
+                    <img src="{{ asset('images/' ~ student.photo) }}" width="150" alt="Фото" id="photo"/>
+                    <div class="student-info">
+                        <p>Фамилия: {{ student.lastname }}</p>
+                        <p>Имя: {{ student.firstname }}</p>
+                        <p>Город: {{ student.city }}</p>
+                        <p>ВУЗ: {{ student.university }}</p>
+                        <p>Факультет: {{ student.faculty }}</p>
+                    </div>
+                    </a>
+                </div>
             </div>
         {% endfor %}
-        <div class="student">
-
-        </div>
     </div>
 {% endblock %}
