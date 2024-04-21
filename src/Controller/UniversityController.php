@@ -47,6 +47,12 @@ class UniversityController extends AbstractController
         return $this->redirect("/university/view/{$id}");
     }
 
+    #[Route('/university/add', methods: ['GET'])]
+    public function add()
+    {
+        return $this->render('university/create.profile.html.twig', []);
+    }
+
     #[Route('/university/view/{id}', methods: ['GET'])]
     public function view(University $university)
     {
