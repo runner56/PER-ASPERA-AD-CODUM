@@ -1,6 +1,5 @@
 $(document).ready(function () {
     let students;
-    console.log(baseUrl)
     fetch(`${baseUrl}/student/search/all`).then(res => res.json()).then(res =>{
         console.log(res.students)
         students = res.students

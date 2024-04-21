@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\University;
 use App\Entity\User;
 use App\Repository\UniversityRepository;
+use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use function Symfony\Component\String\u;
 
 class UniversityController extends AbstractController
@@ -42,6 +44,22 @@ class UniversityController extends AbstractController
         $university->setName($request->get('name'));
         $university->setCity($request->get('city'));
         $university->setAddress($request->get('address'));
+        $em->flush();
+        $id = $university->getId();
+        return $this->redirect("/university/view/{$id}");
+    }
+
+    #[Route('/university/add', methods: ['POST'])]
+    public function addUniversity(Request $request, EntityManagerInterface $em, FileUploader $uploader)
+    {
+        $university = new University();
+        $university->setName($request->get('name'));
+        $university->setCity($request->get('city'));
+        $university->setAddress($request->get('address'));
+        $file = $request->files->get('photo');
+        $filename = $uploader->upload($file);
+        $university->setPhoto($filename);
+        $em->persist($university);
         $em->flush();
         $id = $university->getId();
         return $this->redirect("/university/view/{$id}");
