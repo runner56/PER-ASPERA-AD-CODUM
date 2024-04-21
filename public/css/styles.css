@@ -1126,6 +1126,7 @@ footer {
     border-radius: 5px;
     background-color: #f9f9f9;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-results h2 {
@@ -1146,8 +1147,35 @@ footer {
 }
 
 .search-results li:hover {
-    color: #007bff;
+    color: #0056b3; /* Изменен цвет текста */
+    transition: color 0.3s; /* Добавлено плавное изменение цвета */
 }
+
+#resultsList {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#resultsList li {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: 300px;
+    text-align: center;
+}
+
+#resultsList li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #e0e0e0;
+}
+
 
 
 
