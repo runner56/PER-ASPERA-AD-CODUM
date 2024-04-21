@@ -78,7 +78,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column(options: ['default' => 0])]
-    private ?int $star = null;
+    private ?int $star = 0;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?University $university = null;
