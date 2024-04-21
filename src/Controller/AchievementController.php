@@ -18,4 +18,10 @@ class AchievementController extends AbstractController
     {
 
     }
+
+    #[Route('achievement/get', methods: ['GET'])]
+    public function get()
+    {
+        return $this->render("achievment/check.html.twig");
+    }
 }

@@ -9,7 +9,7 @@
     </div>
     <div class="main-content">
     <div class="main-photo-container">
-        <img src="{{ asset('static/main-photo.jpg') }}" alt="Основное фото" style="max-width: 100%; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+        <img src="{{ asset('images/' ~ university.photo ?? 'university1.jpg') }}" width="800" alt="Основное фото" style="max-width: 100%; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
     </div>
     <div class="university-info">
         <form method="post">

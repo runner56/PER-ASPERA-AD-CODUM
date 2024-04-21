@@ -4,7 +4,13 @@
 {% endblock %}
 {% block body %}
     <div class="student-profile">
-        <h2>Профиль студента</h2>
+        <h2>Профиль
+            {% if 'ROLE_STUDENT' in  user.roles %}
+                Студента
+            {% else %}
+                Преподавателя
+            {% endif %}
+            </h2>
         <div class="student-info">
             <div class="profile-picture">
                 <img src="{{ asset('images/' ~ user.photo) }}"
@@ -19,19 +25,24 @@
             </div>
             <div class="profile-details">
                 <p><strong>Имя и фамилия:</strong> {{ user.lastname }} {{ user.firstname }}</p>
-                <p><strong>Факультет:</strong> {{ user.teachGroup.kafedra.faculty.name }}</p>
-                <p><strong>Кафедра:</strong> {{ user.teachGroup.kafedra.name }}</p>
-                <p><strong>Поток:</strong> {{ user.teachGroup.streamYear }}</p>
-                <p><strong>Группа:</strong> <a
-                            href="/student/super_filter?group={{ user.teachGroup.name }}">{{ user.teachGroup.name }}</a></p>
-                <p><strong>Место в рейтинге по потоку:</strong> 5</p>
-                <p><strong>Общее количество «звездочек»:</strong> {{ user.star }}</p>
-                <p><strong>Достижения в науке:</strong> <a href="достижения_науке.html">Посмотреть список (20)</a></p>
-                <p><strong>Достижения в спорте:</strong> <a href="достижения_спорте.html">Посмотреть список (10)</a></p>
-                <p><strong>Достижения в творчестве:</strong> <a href="достижения_творчестве.html">Посмотреть список
-                        (15)</a></p>
-                <p><strong>Достижения в волонтерстве:</strong> <a href="достижения_волонтерстве.html">Посмотреть список
-                        (5)</a></p>
+                {% if 'ROLE_STUDENT' in  user.roles %}
+                    <p><strong>Факультет:</strong> {{ user.teachGroup.kafedra.faculty.name }}</p>
+                    <p><strong>Кафедра:</strong> {{ user.teachGroup.kafedra.name }}</p>
+                    <p><strong>Поток:</strong> {{ user.teachGroup.streamYear }}</p>
+                    <p><strong>Группа:</strong> <a
+                                href="/student/super_filter?group={{ user.teachGroup.name }}">{{ user.teachGroup.name }}</a></p>
+                    <p><strong>Место в рейтинге по потоку:</strong> 5</p>
+                    <p><strong>Общее количество «звездочек»:</strong> {{ user.star }}</p>
+                    <p><strong>Достижения в науке:</strong> <a href="/achievement/get">Посмотреть список (20)</a></p>
+                    <p><strong>Достижения в спорте:</strong> <a href="/achievement/get">Посмотреть список (10)</a></p>
+                    <p><strong>Достижения в творчестве:</strong> <a href="/achievement/get">Посмотреть список
+                            (15)</a></p>
+                    <p><strong>Достижения в волонтерстве:</strong> <a href="/achievement/get">Посмотреть список
+                            (5)</a></p>
+                {% else %}
+                    <p><strong>Университет:</strong><a href="/university/view/{{  user.university.id  }}">{{ user.university.name }}</a> </p>
+                {% endif %}
+
             </div>
         </div>
         <div class="publication-photos">

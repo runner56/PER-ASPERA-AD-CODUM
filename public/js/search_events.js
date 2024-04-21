@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 userImage.alt = 'Фото пользователя';
                 userImage.classList.add('publication-user-photo');
                 userImage.addEventListener('click', ev => {
-                    location.href = `/teacher/view/${user.creator.id}`
+                    location.href = `/student/view/${user.creator.id}`
                 })
 
                 const userName = document.createElement('span');
