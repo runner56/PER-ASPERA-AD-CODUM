@@ -20,20 +20,12 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        $r = $manager->getRepository(University::class)->findOneBy(['id' => '1']);
         ##############################
-        $it = (new EventType())->setName('профориентация')->setWeight(5);
-        $manager->persist($it);
-        $it = (new EventType())->setName('волонтёрская деятельность')->setWeight(4);
-        $manager->persist($it);
-        $it = (new EventType())->setName('Наука')->setWeight(7);
-        $manager->persist($it);
-        $it = (new EventType())->setName('Фотографии')->setWeight(3);
-        $manager->persist($it);
-        $it = (new EventType())->setName('Путешествия')->setWeight(4);
-        $manager->persist($it);
-        $it = (new EventType())->setName('Спорт')->setWeight(3);
-        $manager->persist($it);
+        $item = (new User())->setRoles(['ROLE_TEACHER'])->setVerify(false)->setPhoto('teacher1.jpg')->setLastname('Иванов')->setFirstname('Иван Иваныч')->setUsername('test')->setUniversity($r)->setEmail('test@example.com');
+        $item->setPassword($this->hasher->hashPassword($item, 'password'));
+        $manager->persist($item);
         $manager->flush();
-       ##############################
+        ##############################
     }
 }

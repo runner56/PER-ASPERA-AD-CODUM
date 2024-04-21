@@ -86,6 +86,14 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[Route('/teacher/setVerify/{id}')]
+    public function teacherSetVerify(User $user, EntityManagerInterface $em)
+    {
+        $user->setVerify(true);
+        $em->flush();
+        return $this->json(['status' => 'ok']);
+    }
+
     #[Route('teacher/verify')]
     public function teacherVerify(#[CurrentUser] User $user, UserRepository $repository)
     {

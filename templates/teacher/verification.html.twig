@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <nav class="main-menu">
         <ul>
@@ -29,9 +31,10 @@
                     <td><img width="80%" src="{{ asset('images/' ~ teacher.photo ?? 't' ) }}" alt=""></td>
                     <td>
                         <div id="toggles">
-                            <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle"/>
-                            <label for="checkbox1" class="checkbox-label" data-off="подтвержден"
-                                   data-on="не подтвержден"></label>
+                            <input type="checkbox" name="checkbox1" id="checkbox1"
+                                   class="ios-toggle verify" data-id="{{ teacher.id }}"/>
+                            <label for="checkbox1" class="checkbox-label" data-off="не подтвержден"
+                                   data-on="подтвержден"></label>
                         </div>
                     </td>
                 {% endif %}
@@ -39,6 +42,13 @@
             </tbody>
         </table>
         <script>
+            for (let el of document.getElementsByClassName('verify')) {
+                el.addEventListener('change', evt => {
+                    if (evt.currentTarget.checked) {
+                        fetch(`${baseUrl}/teacher/setVerify/${evt.currentTarget.dataset.id}`).then()
+                    }
+                })
+            }
             $(document).ready(function () {
 //   Hide the border by commenting out the variable below
                 var $on = 'section';
@@ -50,6 +60,4 @@
             });
         </script>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 {% endblock %}

@@ -35,7 +35,8 @@ class EventController extends AbstractController
                 'is_like' => false,
                 'title' => $publish->getName(),
                 'type' => $publish->getEventType()->getName(),
-                'creator' => $userRepository->fetchTeacher($publish->getCreator()->getId())
+                'creator' => $userRepository->fetchTeacher($publish->getCreator()->getId()),
+                'date' => $publish->getDate()
             ];
         }, $repository->findAll());
         return $this->json([

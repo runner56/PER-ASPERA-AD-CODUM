@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 publicationContent.classList.add('publication-content');
                 const publicationDescription = document.createElement('p');
                 const publicationDescriptionA = document.createElement('a');
-                publicationDescriptionA.href = `/publish/view/${user.id}`
+                publicationDescriptionA.href = `/event/view/${user.id}`
                 publicationDescription.appendChild(publicationDescriptionA)
                 publicationDescription.classList.add('publication-description');
                 publicationDescriptionA.textContent = user.title;
