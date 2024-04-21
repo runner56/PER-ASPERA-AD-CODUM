@@ -80,6 +80,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(options: ['default' => 0])]
     private ?int $star = null;
 
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?University $university = null;
+
     public function __construct()
     {
         $this->created_events = new ArrayCollection();
@@ -353,6 +356,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setStar(int $star): static
     {
         $this->star = $star;
+
+        return $this;
+    }
+
+    public function getUniversity(): ?University
+    {
+        return $this->university;
+    }
+
+    public function setUniversity(?University $university): static
+    {
+        $this->university = $university;
 
         return $this;
     }

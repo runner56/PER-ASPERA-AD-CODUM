@@ -2,16 +2,26 @@
 {% block body %}
     <div class="university-info">
         <form method="post">
-            <button class="upload-button">Сохранить</button>
-            <h3>Название:
-                <input class="basic-in" name="name" value="{{ university.name }}">
-            </h3>
-            <h3>Адрес:
-                <input class="basic-in" name="address" value="{{ university.address }}">
-            </h3>
-            <h3>Город:
-                <input class="basic-in" name="city" value="{{ university.city }}">
-            </h3>
+            {% if has_edit %}
+                <button class="upload-button">Сохранить</button>
+                <h3>Название:
+                    <input class="basic-in" name="name" value="{{ university.name }}">
+                </h3>
+                <h3>Адрес:
+                    <input class="basic-in" name="address" value="{{ university.address }}">
+                </h3>
+                <h3>Город:
+                    <input class="basic-in" name="city" value="{{ university.city }}">
+                </h3>
+            {% else %}
+                <h3>Название:{{ university.name }}
+                </h3>
+                <h3>Адрес:{{ university.address }}
+                </h3>
+                <h3>Город:{{ university.city }}
+                </h3>
+            {% endif %}
+
         </form>
         <h2>Факультеты и кафедры</h2>
         <div>
@@ -46,6 +56,7 @@
         <button><a href="/rating?university_id={{ university.id }}">Студенты ВУЗа</a></button>
     </div>
     <script>
+
         for (let it of document.getElementsByClassName('add-group')) {
             it.addEventListener('click', ev => {
                 const src = ev.target.parentElement.parentElement;
@@ -113,6 +124,15 @@
 
     </script>
     <style>
+
+
+        {% if not has_edit %}
+        div>button{
+            display: none;
+        }
+        {% endif %}
+
+
         .basic-in {
             width: 100%;
             height: 40px;

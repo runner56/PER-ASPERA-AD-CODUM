@@ -36,7 +36,7 @@ class SecurityController extends AbstractController
         $group_id = $request->get('group');
         $email = $request->get('email');
         $password = $request->get('password');
-        $user = (new User())->setRoles([$role])->setUsername($username)->setLastname($lastname)->setFirstname($firstname)->setEmail($email)->setVerify(false);
+        $user = (new User())->setRoles([$role])->setUsername($username)->setLastname($lastname)->setFirstname($firstname)->setEmail($email)->setVerify(false)->setStar(0);
         if ($role === 'ROLE_STUDENT'){
             $user->setTeachGroup($teachGroupRepository->findOneBy(['id' => $group_id]));
         }

@@ -8,6 +8,7 @@ use App\Repository\TeachGroupRepository;
 use App\Repository\UniversityRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -24,8 +25,9 @@ class RatingController extends AbstractController
     }
 
     #[Route('/rating')]
-    public function index(UniversityRepository $repository, FacultyRepository $facultyRepository, KafedraRepository $kafedraRepository, TeachGroupRepository $teachGroupRepository): Response
+    public function index(UniversityRepository $repository, FacultyRepository $facultyRepository, KafedraRepository $kafedraRepository, TeachGroupRepository $teachGroupRepository, Request $request): Response
     {
+        $university_id = $request->get('university_id', null);
         $cities = $repository->getUniqCities();
         $names = $repository->getNames();
         $faculties = $facultyRepository->findAll();
@@ -38,7 +40,8 @@ class RatingController extends AbstractController
             'faculties' => $faculties,
             'kafedras' => $kafedras,
             'groups' => $groups,
-            'streamYears' => $streamYears
+            'streamYears' => $streamYears,
+            'university_id' => $university_id
         ]);
     }
 }

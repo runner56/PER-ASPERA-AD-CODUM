@@ -5,6 +5,7 @@
     <div class="filter-option">
         <label for="city-filter">По городам:</label>
         <select id="city-filter">
+            <option value="" selected>Не выбрано</option>
             {% for city in cities %}
                 <option value="{{ city.city }}">{{ city.city }}</option>
             {% endfor %}
@@ -15,8 +16,9 @@
         <label for="university-filter">По вузам:</label>
         <select id="university-filter">
             <!-- Опции для выбора вузов -->
+            <option value="" selected>Не выбрано</option>
             {% for university in universities %}
-                <option value="{{ university.id }}">{{ university.name }}</option>
+                <option value="{{ university.name }}" {% if university.id == university_id %} selected {% endif %}>{{ university.name }}</option>
             {% endfor %}
         </select>
     </div>
@@ -24,14 +26,16 @@
         <label for="faculty-filter">По факультетам:</label>
         <select id="faculty-filter">
             <!-- Опции для выбора факультетов -->
+            <option value="" disabled selected>Не выбрано</option>
             {% for faculty in faculties %}
-                <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+                <option value="{{ faculty.name }}">{{ faculty.name }}</option>
             {% endfor %}
         </select>
     </div>
     <div class="filter-option">
         <label for="stream-filter">По потокам:</label>
         <select id="stream-filter">
+            <option value="" disabled selected>Не выбрано</option>
             {% for year in streamYears %}
                 <option value="{{ year.streamYear }}">{{ year.streamYear }}</option>
             {% endfor %}
@@ -41,6 +45,7 @@
     <div class="filter-option">
         <label for="department-filter">По кафедрам:</label>
         <select id="department-filter">
+            <option value="" disabled selected>Не выбрано</option>
             <!-- Опции для выбора кафедр -->
             {% for kafedra in kafedras %}
                 <option value="{{ kafedra.id }}">{{ kafedra.name }}</option>

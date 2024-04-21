@@ -7,35 +7,25 @@
         <select name="status" id="status" required>
             <option value="student">Студент</option>
             <option value="teacher">Представитель ВУЗа</option>
-        </select><br><br>
+        </select>
+        <input type="text" id="username" name="username" required placeholder="Логин ">
+        <input type="text" id="last-name" name="last-name" required placeholder="Фамилия">
+        <input type="text" id="first-name" name="first-name" required placeholder="Имя">
 
-        <label for="login">Логин:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-
-        <label for="last-name">Фамилия:</label><br>
-        <input type="text" id="last-name" name="last-name" required><br><br>
-
-        <label for="first-name">Имя:</label><br>
-        <input type="text" id="first-name" name="first-name" required><br><br>
-
-        <label for="university">Университет:</label><br>
         <select name="university" id="university" required>
-            <option disabled selected>Не выбрано</option>
+            <option disabled selected>Выберите университет</option>
             {% for university in universities %}
                 <option value="{{ university.id }}">{{ university.name }}</option>
             {% endfor %}
-        </select><br><br>
+        </select><br>
 
-        <label class="select-group" for="group">Группа:</label><br>
         <select class="select-group" disabled name="group" id="group">
-        </select><br><br>
+            <option disabled selected>Выберите группу</option>
+        </select><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email" required placeholder="Email">
 
-        <label for="password">Пароль:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-
+        <input type="password" id="password" name="password" required placeholder="Пароль">
         <input type="submit" value="Зарегистрироваться">
     </form>
 </div>
