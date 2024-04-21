@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\University;
+use App\Entity\User;
 use App\Repository\UniversityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
+use function Symfony\Component\String\u;
 
 class UniversityController extends AbstractController
 {
@@ -67,9 +69,21 @@ class UniversityController extends AbstractController
                 })
             ];
         });
+        /** @var User $user */
+        $user = $this->getUser();
+        $has_edit = false;
+        if ($user) {
+            if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                $has_edit = true;
+            }
+            if (in_array('ROLE_TEACHER', $user->getRoles()) && $university->getUsers()->contains($user)) {
+                $has_edit = true;
+            }
+        }
         return $this->render('university/profile.html.twig', [
             'university' => $university,
-            'info' => $info
+            'info' => $info,
+            'has_edit' => $has_edit
         ]);
     }
 }
