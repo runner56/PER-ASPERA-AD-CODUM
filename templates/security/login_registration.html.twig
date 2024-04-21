@@ -44,7 +44,7 @@
     })
     document.getElementById('university').addEventListener('change', (e) => {
         const groupEl = document.getElementById('group')
-        console.log(`http://localhost:8000/regroups?university_id=${e.target.value}`)
+        console.log(`${baseUrl}/regroups?university_id=${e.target.value}`)
         fetch(`http://localhost:8000/regroups?university_id=${e.target.value}`).then(res => res.json()).then(res => {
             groupEl.removeAttribute('disabled')
             groupEl.childNodes.forEach((v) => {
