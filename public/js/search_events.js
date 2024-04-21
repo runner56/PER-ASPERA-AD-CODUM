@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     let publishes;
-    fetch(`${baseUrl}/event/all`).then(res => res.json()).then(res =>{
-        console.log(res)
-        publishes = res.publishes
-        displaySearchResults(publishes)
-    })
+    fetch(`${baseUrl}/event/all`)
+        .then(res => res.json())
+        .then(res =>{
+            console.log(res)
+            publishes = res.publishes
+            displaySearchResults(publishes)
+        });
 
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
-    const citySelect = document.getElementById('city-select')
-    const universitySelect = document.getElementById('university-select')
-    const facultySelect = document.getElementById('faculty-select')
+    const citySelect = document.getElementById('city-select');
+    const universitySelect = document.getElementById('university-select');
+    const facultySelect = document.getElementById('faculty-select');
 
     searchButton.addEventListener('click', () => {
         const query = searchInput.value.trim().toLowerCase();
@@ -26,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function displaySearchResults(results) {
         const publicationsContainer = document.getElementById('publications-container');
         publicationsContainer.innerHTML = ''; // Очищаем контейнер публикаций
-    
+
         if (results.length === 0) {
             const noResultsMessage = document.createElement('div');
             noResultsMessage.textContent = 'Пользователь не найден.';
@@ -38,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const publicationHeader = document.createElement('div');
                 publicationHeader.classList.add('publication-header');
-    
+
                 const userInfo = document.createElement('div');
                 userInfo.classList.add('user-info');
-    
+
                 const userImage = document.createElement('img');
                 userImage.src = 'images/'+user.creator.photo;
                 userImage.alt = 'Фото пользователя';
@@ -49,21 +51,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 userImage.addEventListener('click', ev => {
                     location.href = `/teacher/view/${user.creator.id}`
                 })
-    
+
                 const userName = document.createElement('span');
                 userName.classList.add('publication-user');
                 userName.textContent = user.creator.lastname + ' ' + user.creator.firstname;
-    
+
                 const publicationDate = document.createElement('span');
                 publicationDate.classList.add('publication-date');
                 publicationDate.textContent = `Дата проведения: ${user.date}`;
-    
+
                 userInfo.appendChild(userImage);
                 userInfo.appendChild(userName);
                 publicationHeader.appendChild(userInfo);
                 publicationHeader.appendChild(publicationDate);
                 publication.appendChild(publicationHeader);
-    
+
                 const publicationContent = document.createElement('div');
                 publicationContent.classList.add('publication-content');
                 const publicationDescription = document.createElement('p');
@@ -93,6 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     fetch(`${baseUrl}/event/visit?event_id=${ev.target.id}`).then(res =>{
                         console.log(res)
                     })
+                    // Добавляем класс анимации при клике
+                    ev.target.classList.add('visit-animation');
+                    // Удаляем класс анимации через 500 миллисекунд
+                    setTimeout(() => {
+                        ev.target.classList.remove('visit-animation');
+                    }, 500);
                 })
 
                 publicationContent.appendChild(publicationDescription);
@@ -100,10 +108,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 publicationContent.appendChild(likeButton);
                 publicationContent.appendChild(visitButton);
                 publication.appendChild(publicationContent);
-    
+
                 publicationsContainer.appendChild(publication);
             });
         }
     }
-    
+
 });
