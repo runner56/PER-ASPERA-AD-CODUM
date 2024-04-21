@@ -6,13 +6,83 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+    color: #333; /* Цвет текста */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0; /* Добавлено для сброса отступов */
+    margin: 0;
+    background: linear-gradient(to bottom, hsl(195, 100%, 90%), #89b8ff); /* Начальный градиент */
+    animation: gradientAnimation 100s linear infinite; /* Плавная анимация градиента */
+    transition: background-color 2s; /* Плавный переход цвета фона */
 }
+
+/* Ключевые кадры анимации для плавного градиента */
+@keyframes gradientAnimation {
+    0%, 100% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 90%), #89b8ff); /* Начальный и конечный градиенты */
+    }
+    5% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 92%), hsl(195, 100%, 94%)); /* Градиент от более светлого голубого к еще светлее */
+    }
+    10% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 92%), hsl(195, 100%, 94%)); /* Градиент от более светлого голубого к еще светлее */
+    }
+    15% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 94%), hsl(195, 100%, 96%));
+    }
+    20% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 96%), hsl(195, 100%, 98%));
+    }
+    25% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #89b8ff); /* Градиент к #89b8ff */
+    }
+    30% {
+        background: linear-gradient(to bottom, #89b8ff, #7ab5ff);
+    }
+    35% {
+        background: linear-gradient(to bottom, #7ab5ff, hsl(195, 100%, 94%));
+    }
+    40% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 94%), hsl(195, 100%, 92%));
+    }
+    45% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 92%), #89b8ff);
+    }
+    50% {
+        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 92%));
+    }
+    55% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 92%), #7ab5ff);
+    }
+    60% {
+        background: linear-gradient(to bottom, #7ab5ff, #89b8ff);
+    }
+    65% {
+        background: linear-gradient(to bottom, #89b8ff, #7ab5ff);
+    }
+    70% {
+        background: linear-gradient(to bottom, #7ab5ff, #89b8ff);
+    }
+    75% {
+        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 98%)); /* Градиент к #89b8ff */
+    }
+    80% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #89b8ff);
+    }
+    85% {
+        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 98%));
+    }
+    90% {
+        background: linear-gradient(to bottom, hsl(195, 100%, 98%), #89b8ff);
+    }
+    95% {
+        background: linear-gradient(to bottom, #89b8ff, hsl(195, 100%, 98%));
+    }
+}
+
+
+
+
 .container {
     flex: 1;
 }
@@ -196,16 +266,19 @@ footer {
 /* Общий стиль для формы регистрации */
 .registration-form {
     max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px auto; /* Уменьшенный отступ */
+    padding: 20px; /* Уменьшенный отступ */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    position: relative; /* Добавлено для позиционирования пульсации */
+    overflow: hidden; /* Добавлено для пульсации */
+    box-shadow: 0 0 0 10px rgba(0, 127, 255, 0.7);
 }
 
 .registration-form h2 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px; /* Увеличенный отступ */
 }
 
 .registration-form form {
@@ -219,9 +292,10 @@ footer {
 
 .registration-form input[type="text"],
 .registration-form input[type="email"],
-.registration-form input[type="password"] {
+.registration-form input[type="password"],
+.registration-form select {
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 1px; /* Одинаковый отступ */
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -230,7 +304,7 @@ footer {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+     background-color: #007FFF;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -240,22 +314,55 @@ footer {
     background-color: #0056b3;
 }
 
-/* Стили для выпадающих списков */
-.registration-form select {
-    padding: 10px;
-
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
 /* Стили для опций в выпадающих списках */
 .registration-form select option {
     padding: 10px;
 }
+
+/* Стили для светящейся границы */
+.registration-form::before,
+.registration-form::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 10px rgba(173, 216, 230, 0.5); /* Светло-голубая граница */
+    animation: pulse 2s infinite; /* Анимация */
+}
+
+.registration-form::before {
+    animation-delay: 0.5s; /* Задержка для первого пульсации */
+}
+
+.registration-form::after {
+    animation-delay: 1s; /* Задержка для второго пульсации */
+}
+
+.registration-form:hover::before,
+.registration-form:hover::after {
+    background-color: transparent;
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
 
 /* Добавляем стили для формы авторизации */
 .login-form {
@@ -264,7 +371,10 @@ footer {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 10px rgba(0, 127, 255, 0.7); /* Светло-голубая граница */
 }
 
 .login-form h2 {
@@ -288,16 +398,65 @@ footer {
     border: 1px solid #ccc;
 }
 
+/* Дополнительные стили для кнопки "Войти" */
 .login-form input[type="submit"] {
-    background-color: #007bff;
+    background-color: #007FFF; /* Светло-голубой цвет */
     color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавные переходы */
 }
 
 .login-form input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #00cfff; /* Темно-светло-голубой цвет при наведении */
 }
+
+/* Стили для светящейся границы */
+.login-form::before,
+.login-form::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 10px rgba(173, 216, 230, 0.5); /* Светло-голубая граница */
+    animation: pulse 2s infinite; /* Анимация */
+}
+
+.login-form::before {
+    animation-delay: 0.5s; /* Задержка для первого пульсации */
+}
+
+.login-form::after {
+    animation-delay: 1s; /* Задержка для второго пульсации */
+}
+
+.login-form:hover::before,
+.login-form:hover::after {
+    background-color: transparent;
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
 
 
 /* Стили для блока с публикациями */
