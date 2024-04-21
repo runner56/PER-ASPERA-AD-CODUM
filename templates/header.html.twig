@@ -24,7 +24,7 @@
                 <li><a href="/university/add">Добавление вуза</a></li>
                 <li><a href="/achievement/add">Добавление достежния</a></li>
             {% endif %}
-            {% if 'ROLE_ADMIN' in app.user.roles %}
+            {% if 'ROLE_TEACHER' in app.user.roles %}
                 <li><a href="/achievement/add">Добавление достежния</a></li>
             {% endif %}
         {% endif %}
