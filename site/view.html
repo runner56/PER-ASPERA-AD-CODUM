@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeCourse - Главная страница</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="../public/static/logo-new.png" alt="Логотип">
+    </div>
+    <div class="description">
+        <p>LifeCourse - ваш надежный гид в мире образования!</p>
+        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для достижения успеха.</p>
+    </div>
+</header>
+
+<nav class="main-menu">
+    <ul>
+        <li><a href="main.html">Главная страница</a></li>
+        <li><a href="feed.html">Лента</a></li>
+        <li><a href="rating.html">Рейтинг</a></li>
+        <li><a href="student_search.html">Поиск студента</a></li>
+        <li><a href="university_search.html">Поиск вуза</a></li>
+    </ul>
+</nav>
+
+<div class="publication-form">
+    <h2>Организатор: {{ event.creator.lastname }} {{ event.creator.firstname }}</h2>
+    <h3>Название: {{ event.name }}</h3>
+    <h3>Раздел: {{ event.eventType.name }}</h3>
+    <h3>Дата проведения: {{ event.date|date("F j, Y") }}</h3>
+    <h4>Статья:</h4>
+    {{ event.html|raw }}
+</div>
+
+<!-- Добавленный раздел "Посетители" -->
+<section class="visitors">
+    <h2>Посетители</h2>
+    <ul>
+        <li><img src="../public/images/student1.jpg" alt="Аватар студента 1"><span>Имя студента 1</span></li>
+    </ul>
+</section>
+
+<footer>
+    <div class="company-info">
+        <p>«ООО СОЗНАНИЕ»</p>
+        <p>Юридический адрес</p>
+        <p>Электронная почта</p>
+    </div>
+    <div class="additional-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования сайта</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">О нас</a>
+        <a href="#">Реклама</a>
+        <a href="#">Партнеры</a>
+    </div>
+</footer>
+<script src="../public/js/show_letters.js"></script>
+
+</body>
+</html>

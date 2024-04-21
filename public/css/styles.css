@@ -1813,6 +1813,50 @@ table.verification_table th {
     color: #1fc1c8;
 }
 
+/* Стили для раздела "Посетители" */
+.visitors {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.visitors h2 {
+    color: #800080; /* Фиолетовый */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.visitors ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов списка на следующую строку */
+    justify-content: center; /* Выравниваем элементы списка по центру */
+}
+
+.visitors ul li {
+    font-size: 20px; /* Увеличение размера текста */
+    margin-bottom: 20px; /* Увеличение отступа между элементами */
+    display: flex;
+    align-items: center; /* Выравнивание элементов списка по вертикали */
+    margin-right: 20px; /* Отступ между студентами */
+}
+
+.visitors ul li img {
+    width: 60px; /* Увеличение размера аватарки */
+    height: 60px; /* Увеличение размера аватарки */
+    border-radius: 50%; /* Для круглой формы аватарки */
+    margin-right: 10px; /* Увеличение отступа между аватаркой и текстом */
+}
+
+
+
+
+
+
 
 
 
