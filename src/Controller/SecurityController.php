@@ -25,8 +25,9 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    //TODO("Валидация")
     #[Route(path: '/registration', methods: ['POST'])]
-    public function newUser(Request $request, UserPasswordHasherInterface $hasher, EntityManagerInterface $em, TeachGroupRepository $teachGroupRepository): Response
+    public function newUser(Request $request, UserPasswordHasherInterface $hasher, EntityManagerInterface $em, TeachGroupRepository $teachGroupRepository, UniversityRepository $universityRepository): Response
     {
         $role = $request->get('status') === 'teacher' ? 'ROLE_TEACHER' : 'ROLE_STUDENT';
         $username = $request->get('username');
@@ -39,6 +40,9 @@ class SecurityController extends AbstractController
         $user = (new User())->setRoles([$role])->setUsername($username)->setLastname($lastname)->setFirstname($firstname)->setEmail($email)->setVerify(false)->setStar(0);
         if ($role === 'ROLE_STUDENT'){
             $user->setTeachGroup($teachGroupRepository->findOneBy(['id' => $group_id]));
+        }
+        if ($role === 'ROLE_TEACHER'){
+            $user->setUniversity($universityRepository->findOneBy(['id' => $university_id]));
         }
         $user->setPassword($hasher->hashPassword($user, $password));
         $em->persist($user);

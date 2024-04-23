@@ -49,6 +49,7 @@ class UniversityController extends AbstractController
         return $this->redirect("/university/view/{$id}");
     }
 
+    //TODO("Добавление вуза")
     #[Route('/university/add', methods: ['POST'])]
     public function addUniversity(Request $request, EntityManagerInterface $em, FileUploader $uploader)
     {

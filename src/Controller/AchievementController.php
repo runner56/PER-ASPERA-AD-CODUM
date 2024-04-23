@@ -13,6 +13,7 @@ class AchievementController extends AbstractController
         return $this->render("achievment/add.html.twig");
     }
 
+    //TODO("Добавление достижения")
     #[Route('achievement/add', methods: ['POST'])]
     public function addSave()
     {
