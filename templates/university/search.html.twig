@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-Поиск вуза
+Поиск
 {% endblock %}
 {% block body %}
 
     <div class="search-university">
         <h2>Поиск вуза</h2>
         <form>
-            <label for="university_name">Введите название вуза:</label>
+            <label for="university_name">Введите название компании:</label>
             <input type="text" id="university_name" name="university_name">
-            <label for="city">Введите город:</label>
-            <input type="text" id="city" name="city">
+            <input type="hidden" id="city" name="city">
             <button type="button" id="searchButton">Найти</button>
         </form>
     </div>

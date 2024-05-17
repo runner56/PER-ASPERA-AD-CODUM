@@ -9,7 +9,6 @@
             <input type="text" id="name" name="name" placeholder="Введите название университета" required><br>
             <input type="text" id="address" name="address" placeholder="Введите адрес университета" required><br>
             <input type="text" id="city" name="city" placeholder="Введите город университета" required><br><br>
-            <label for="photo">Загрузить фото:</label><br>
             <input type="file" id="photo" name="photo" required><br><br>
             <button type="submit">Добавить университет</button>
         </form>
@@ -36,6 +35,7 @@
                 src.children.item(0).prepend(d)
             })
         }
+
 
         for (let it of document.getElementsByClassName('add-kafedra')) {
             it.addEventListener('click', ev => {

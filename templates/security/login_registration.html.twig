@@ -9,25 +9,19 @@
         <label for="status">Выберите ваш статус:</label><br>
         <select name="status" id="status" required>
             <option value="student">Студент</option>
-            <option value="teacher">Представитель ВУЗа</option>
+            <option value="teacher">Представитель Компании</option>
         </select>
         <input type="text" id="username" name="username" required placeholder="Логин ">
         <input type="text" id="last-name" name="last-name" required placeholder="Фамилия">
         <input type="text" id="first-name" name="first-name" required placeholder="Имя">
 
         <select name="university" id="university" required>
-            <option disabled selected>Выберите университет</option>
+            <option disabled selected>Выберите компанию</option>
             {% for university in universities %}
                 <option value="{{ university.id }}">{{ university.name }}</option>
             {% endfor %}
         </select><br>
-
-        <select class="select-group" disabled name="group" id="group">
-            <option disabled selected>Выберите группу</option>
-        </select><br>
-
         <input type="email" id="email" name="email" required placeholder="Email">
-
         <input type="password" id="password" name="password" required placeholder="Пароль">
         <input type="submit" value="Зарегистрироваться">
     </form>

@@ -4,18 +4,16 @@
 {% endblock %}
 {% block body %}
 <div class="search-student">
-    <h2>Поиск студента</h2>
+    <h2>Поиск пользователя</h2>
     <form>
-        <label for="student_name">Введите имя или фамилию студента:</label>
+        <label for="student_name">Введите имя или фамилию:</label>
         <input type="text" id="student_name" name="student_name">
-        <label for="university">Выберите вуз:</label>
+        <label for="university">Выберите компанию:</label>
         <select id="university" name="university">
             {% for university in universities %}
                 <option value="{{ university.name }}">{{ university.name }}</option>
             {% endfor %}
         </select>
-        <label for="group">Введите группу:</label>
-        <input type="text" id="group" name="group">
         <button type="button" id="searchButton">Найти</button>
     </form>
 </div>

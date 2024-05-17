@@ -3,8 +3,8 @@
         <img src="{{ asset('static/logo-new.png') }}" alt="Логотип">
     </div>
     <div class="description">
-        <p>LifeCourse - ваш надежный гид в мире образования!</p>
-        <p>Наше приложение значительно упрощает процесс обучения студентов, предоставляя широкий функционал для
+        <p>LifeCourse - ваш надежный гид в мире IT!</p>
+        <p>Наше приложение  предоставляет широкий функционал для
             достижения успеха.</p>
     </div>
 </header>
@@ -14,9 +14,8 @@
         <li><a href="/">Главная страница</a></li>
         <li><a href="/feed">Лента</a></li>
         <li><a href="/rating">Рейтинг</a></li>
-        <li><a href="/student/search">Поиск студента</a></li>
-        <li><a href="/university/search">Поиск вуза</a></li>
-        <li><a href="/events">Мероприятия</a></li>
+        <li><a href="/student/search">Поиск пользователей</a></li>
+        <li><a href="/university/search">Поиск компаний</a></li>
         {% if app.user %}
             <li><a href="/favorites">Избранное</a></li>
             {% if 'ROLE_ADMIN' in app.user.roles %}

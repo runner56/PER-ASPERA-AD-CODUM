@@ -4,39 +4,28 @@
 {% endblock %}
 {% block body %}
     <div class="landing-description">
-        <div class="landing-buttons">
-            <button onclick="location.href='/registration'">Студентам</button>
-            <button onclick="location.href='/registration'">ВУЗам</button>
-            <button onclick="location.href='/registration'">Предпринимателям</button>
-        </div>
-
         <div class="app-description">
-            <h2>LifeCourse - ваш надежный гид в мире образования!</h2>
-            <p>"LifeCourse" - это ваш надежный гид в мире образования! Наше приложение значительно упрощает процесс
-                обучения
-                студентов, предоставляя широкий функционал для достижения успеха.</p>
-            <p>С LifeCourse студенты могут:</p>
+            <h2>LifeCourse - ваш надежный гид в мире IT!</h2>
+            <p>С LifeCourse пользователи могут:</p>
             <ul>
                 <li>Получать ответы на интересующие их вопросы.</li>
-                <li>Оказывать взаимную помощь в учебе.</li>
-                <li>Оформлять свои достижения в учебе в виде резюме.</li>
                 <li>Накапливать достижения и получать награды в виде звезд и медалей.</li>
-                <li>Выделяться среди других студентов, демонстрируя свои навыки и успехи.</li>
+                <li>Выделяться среди других пользователей, демонстрируя свои навыки и успехи.</li>
                 <li>Стать заметными для работодателей и предложить себя для сотрудничества.</li>
             </ul>
             <p>LifeCourse также предоставляет возможности для преподавателей, соискателей, работодателей, родителей и
                 абитуриентов. Мы стремимся к максимальной удобности, простоте и точности в нашем приложении, чтобы
                 каждый
-                пользователь мог достичь своих целей в образовании и карьере.</p>
-            <p>Присоединяйтесь к LifeCourse сегодня и откройте для себя новые возможности в мире образования и
+                пользователь мог достичь своих целей.</p>
+            <p>Присоединяйтесь к LifeCourse сегодня и откройте для себя новые возможности
                 профессионального развития!</p>
         </div>
     </div>
 
     <div style="display: flex; justify-content: center; margin: 10px">
-        <h2>Топ студентов</h2>
+        <h2>Топ пользователей</h2>
     </div>
-    <div class="top-students" style="display: flex; flex-flow: wrap; gap: 10px">
+    <div class="top-students" style="display: flex; flex-flow: wrap; gap: 10px; flex: 1; justify-content: center">
         {% for student in top_students %}
             <div class="student-container">
                 <div class="student">
@@ -44,10 +33,6 @@
                     <img src="{{ asset('images/' ~ student.photo) }}" width="150" alt="Фото" id="photo"/>
                     <div class="student-info">
                         <p>Фамилия: {{ student.lastname }}</p>
-                        <p>Имя: {{ student.firstname }}</p>
-                        <p>Город: {{ student.city }}</p>
-                        <p>ВУЗ: {{ student.university }}</p>
-                        <p>Факультет: {{ student.faculty }}</p>
                     </div>
                     </a>
                 </div>
